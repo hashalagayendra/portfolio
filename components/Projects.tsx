@@ -19,7 +19,7 @@ function Projects() {
       image: Citizen_Voice,
       title: "Citizen Voice ",
       description:
-        " creative solutions. I specialize in My approach focuses on creating scalable, high-performing solutions tailored to both user needs creative solutions. I specialize in My approach focuses on creating scalable, high-performing solutions tailored to both user needs",
+        "The Citizen Voice Project enables citizens to actively share feedback, report issues, and propose solutions to local authorities. By fostering transparency, engagement, and responsive governance, it helps improve public services and strengthens the connection between communities and decision-makers.",
       navigation: "/Projects/CitizenVoice",
     },
   ];

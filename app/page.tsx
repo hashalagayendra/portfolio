@@ -13,20 +13,21 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className=" xl:px-30  px-10  max-md:px-4">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className=" xl:px-30  px-10  max-md:px-4"
+    >
       <Herosection />
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="flex flex-col gap-30 "
-      >
+      <div className="flex flex-col gap-30 ">
         <Aboutme />
         <Stack />
         <Projects />
         <Contact />
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 }

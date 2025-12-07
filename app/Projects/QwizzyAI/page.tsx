@@ -3,6 +3,8 @@ import React from "react";
 import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
 import Qwizzy_AI_Hero from "@/asset/projects/Qwizzy_AI/homepage.png";
+import v1 from "@/asset/videos/QwizzyAI/v1.webp";
+import v2 from "@/asset/videos/QwizzyAI/v2.webp";
 
 import postgresssql from "@/asset/icons/postgresql.svg";
 import prisma from "@/asset/icons/prisma.svg";
@@ -11,7 +13,7 @@ import nextjs from "@/asset/icons/nextjs.png";
 import nextauthjs from "@/asset/icons/nextauthjs.png";
 import { motion } from "motion/react";
 function page() {
-  const database: { name: string; icon: any }[] = [
+  const techStack: { name: string; icon: any }[] = [
     { name: "Next.js", icon: nextjs },
     { name: "NextAuth.js", icon: nextauthjs },
     { name: "Tailwind CSS", icon: tailwindcss },
@@ -29,7 +31,7 @@ function page() {
         "Credential-Based Login supports traditional login with email and password",
         "Secure Password Hashing hashes passwords using bcrypt for protection.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v1.src,
     },
     {
       title: "User Dashboard Features",
@@ -39,7 +41,7 @@ function page() {
         "Answered Papers View displays papers the user has already completed",
         "Assigned Papers View lists papers assigned by others for the user to answer",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v2.src,
     },
     {
       title: "Paper Creation System",
@@ -128,16 +130,20 @@ function page() {
       <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center">
         <div className="flex-1 flex flex-col gap-5 max-w-3xl w-full">
           <div className="flex  gap-5  items-center">
-            <h1 className={`text-6xl text-green-500/75 ${anton.className}`}>
+            <h1
+              className={`text-6xl text-green-500/75 ${anton.className}  max-md:text-5xl`}
+            >
               0{number}
             </h1>
-            <h1 className={`text-3xl text-white/75  ${adamina.className}`}>
+            <h1
+              className={`text-3xl text-white/75  ${adamina.className}  max-md:text-xl`}
+            >
               {title}
             </h1>
           </div>
 
           <div
-            className={`flex flex-col gap-4 text-white/50 text-lg leading-relaxed pl-6  ${adamina.className}  pl-22`}
+            className={`flex flex-col gap-4 text-white/50 text-lg leading-relaxed pl-6  ${adamina.className}  pl-22  max-md:text-base`}
           >
             <ul className="list-disc list-outside space-y-3">
               {subTitles.map((each, index) => (
@@ -168,39 +174,41 @@ function page() {
         className="flex gap-8 max-lg:flex-col w-full h-dvh justify-center items-center "
       >
         <div className="w-full gap-10 flex flex-col ">
-          <div className="flex flex-col gap-10 ">
-            <h1
-              className={`text-8xl max-xl:text-7xl text-green-500/75 ${anton.className} max-lg:text-start`}
-            >
-              Qwizzy AI
-            </h1>
+          <h1
+            className={`text-8xl max-xl:text-7xl text-green-500/75 ${anton.className} max-lg:text-start`}
+          >
+            Qwizzy AI
+          </h1>
+          <div className="flex flex-col gap-10 max-md:gap-3 ">
             <p
-              className={`text-white/75 text-2xl ${adamina.className} max-lg:text-start`}
+              className={`text-white/75 text-2xl ${adamina.className} max-lg:text-start  max-md:text-lg`}
             >
               Smart Paper Creation, Sharing, Answering, and Result System
             </p>
+            <p
+              className={`text-white/50 text-xl ${adamina.className} max-xl:text-xl max-lg:text-start leading-8 max-md:text-base`}
+            >
+              Qwizzy AI is a platform where users can create papers, add
+              questions, share them with others, answer them within a time
+              limit, and view their results. It makes the whole process simple,
+              fast, and user-friendly for both creators and students.
+            </p>
           </div>
-          <p
-            className={`text-white/50 text-xl ${adamina.className} max-xl:text-xl max-lg:text-start leading-8`}
-          >
-            Qwizzy AI is a platform where users can create papers, add
-            questions, share them with others, answer them within a time limit,
-            and view their results. It makes the whole process simple, fast, and
-            user-friendly for both creators and students.
-          </p>
+
           <div className="flex gap-7 flex-wrap ">
-            {database.map((each, index) => (
+            {techStack.map((each, index) => (
               <div
                 className="flex flex-col gap-3 items-center justify-between  "
                 key={index}
               >
                 <img
+                  className="w-10 h-10 max-md:w-8 max-md:h-8 "
                   src={each.icon.src}
                   alt={each.name}
-                  width={40}
-                  height={40}
+                  width={"full"}
+                  height={"full"}
                 />
-                <h1 className="text-white/75 text-base text-nowrap">
+                <h1 className="text-white/75 text-base text-nowrap  max-md:text-sm">
                   {each.name}
                 </h1>
               </div>
@@ -227,7 +235,7 @@ function page() {
         transition={{ duration: 0.5 }}
       >
         <h1
-          className={`text-6xl text-green-500/75  max-lg:text-start ${anton.className}`}
+          className={`text-6xl text-green-500/75  max-lg:text-start ${anton.className}  max-md:text-5xl`}
         >
           Features
         </h1>

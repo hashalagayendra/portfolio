@@ -3,109 +3,118 @@ import React from "react";
 import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
 import Qwizzy_AI_Hero from "@/asset/projects/Qwizzy_AI/homepage.png";
+import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
 
 import postgresssql from "@/asset/icons/postgresql.svg";
 import prisma from "@/asset/icons/prisma.svg";
 import tailwindcss from "@/asset/icons/tailwindcss.png";
 import nextjs from "@/asset/icons/nextjs.png";
 import nextauthjs from "@/asset/icons/nextauthjs.png";
+import firebase from "@/asset/icons/firebase.png";
+import leaflet from "@/asset/icons/leaflet.png";
+import gemini from "@/asset/icons/Gemini.png";
+import cloudinary from "@/asset/icons/cloudinary.png";
 import { motion } from "motion/react";
 function page() {
-  const database: { name: string; icon: any }[] = [
+  const techStack: { name: string; icon: any }[] = [
     { name: "Next.js", icon: nextjs },
     { name: "NextAuth.js", icon: nextauthjs },
     { name: "Tailwind CSS", icon: tailwindcss },
     { name: "PostgreSQL", icon: postgresssql },
+    { name: "Firebase", icon: firebase },
     { name: "Prisma", icon: prisma },
+    { name: "Leaflet.js", icon: leaflet },
+    { name: "Cloudinary", icon: cloudinary },
+    { name: "Gemini AI", icon: gemini },
   ];
 
   const features = [
     {
-      title:
-        "User Authentication with Google OAuth & Credentials (NextAuth.js)",
+      title: "User Authentication & Role Management (NextAuth.js)",
       description: "",
       subTitles: [
-        "Google OAuth Integration lets users log in instantly using their Google account",
-        "Credential-Based Login supports traditional login with email and password",
-        "Secure Password Hashing hashes passwords using bcrypt for protection.",
+        "Supports Google OAuth and Email/Password login.",
+        "Secure Password Hashing implemented using bcrypt.",
+        "Role-Based Access Control separates Admin and User permissions.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
     {
-      title: "User Dashboard Features",
+      title: "Dynamic Complaint Categories & Scalable Form System",
       description: " ",
       subTitles: [
-        "Created Papers View shows all papers the user has created",
-        "Answered Papers View displays papers the user has already completed",
-        "Assigned Papers View lists papers assigned by others for the user to answer",
+        "Includes 7 main categories and 33 sub-categories for different complaint types.",
+        "Uses modular, reusable input components for fast feature expansion.",
+        "Adding new complaint types only requires selecting existing components—no heavy development.",
+        "Built with components like: DescriptionInput, MapSelection, DatePicker, FileDropBox, AnyWitnesses, AffectedAreaSize, IsItOngoing, PersonInvolved, DepartmentSelection, ConstructionTypeSelection, IsItCurrentlyDangerous, FacilityTypeSelector, NameOfFacility.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
     {
-      title: "Paper Creation System",
+      title: "Multi-Stage Complaint Submission Flow",
       description: "",
       subTitles: [
-        "Add Paper Title sets a clear and meaningful name for the paper",
-        "Add Paper Description provides important details or instructions",
-        "Set Time Limit defines the duration for completing the paper",
-        "Assign Paper to Users allows selection of one or multiple registered users",
+        "Stage 1: Main form with combined input components.",
+        "Stage 2: Select Complaint Severity Level.",
+        "Stage 3: Choose Submission Method – with ID or anonymous.",
+        "Stage 4: Final review and confirmation step.",
+        "Stage 5: Downloadable receipt provided as evidence for the citizen.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
     {
-      title: "Question Creation",
+      title: "Interactive Location Selection (Leaflet.js)",
       description: "",
       subTitles: [
-        "Manual Question Entry allows users to type questions and add multiple answer options",
-        "AI-Powered Question Generation creates questions and answers automatically from a given topic or description",
+        "Integrated Leaflet.js map for selecting exact complaint locations.",
+        "Offers precise geolocation support for better issue tracking.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
     {
-      title:
-        "Document-Based Question Generation with Custom Question and Answer Count",
+      title: "Secure Media Uploads with Cloudinary",
       description: "",
       subTitles: [
-        "PDF Upload Question Generation allows users to upload a document and generate questions from its content",
-        "Set Question Count lets users choose how many questions should be created",
-        "Set Answer Count allows defining how many answer options each question should have",
+        "All uploaded images and relevant files stored safely using Cloudinary.",
+        "Provides fast delivery and reliable cloud storage.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
     {
-      title: "Paper Answering System",
+      title: "Citizen Legal Help Chatbot Powered by Gemini AI",
       description: "",
       subTitles: [
-        "Timed Paper Attempt allows users to answer created papers within the given time",
-        "Timed Paper Attempt allows users to answer assigned papers within the given time",
-        "Question Navigation lets users skip and move between questions using the sidebar",
+        "Built-in AI chatbot that answers legal questions related to Sri Lankan laws.",
+        "Helps citizens understand rights, procedures, and available support.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
     {
-      title: "Paper Marking and Review",
+      title: "Real-Time User–Admin Chat System",
       description: "",
       subTitles: [
-        "View Marks allows users to see their score after submitting a paper",
-        "Answer Review lets users check which answers were correct and which were wrong",
+        "Citizens can start live chats with admins for complaint-related questions.",
+        "Powered by Firebase Realtime Database for instant communication.",
+        "Enables fast clarification and reduces waiting time for updates.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
     {
-      title: "Paper Resetting",
+      title: "Separate User & Admin Dashboards",
       description: "",
       subTitles: [
-        "Reset Own Paper allows users to reset and reattempt papers they have created",
-        "Assigned Paper Restriction prevents users from resetting papers assigned by others",
+        "User Dashboard : View complaint progress and detailed status updates and Download receipts and track communication with admins.",
+        "Admin Dashboard: Manage complaints with filtering, sorting, status updates, real-time chat, and transparent progress tracking.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
     {
-      title: "PDF Download",
+      title: "Fully Mobile-Responsive Interface",
       description: "",
       subTitles: [
-        "Download Paper allows users to save any paper as a PDF file",
-        "Include Questions and Answers lets the PDF contain all questions and their options",
+        "All forms, dashboards, and chat features automatically adjust to different screen sizes",
+        "Multi-stage complaint flow remains easy to navigate on small screens",
+        "Map selection, file uploads, and AI chatbot are optimized for touch interactions.",
       ],
       url: Qwizzy_AI_Hero.src,
     },
@@ -128,16 +137,20 @@ function page() {
       <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center">
         <div className="flex-1 flex flex-col gap-5 max-w-3xl w-full">
           <div className="flex  gap-5  items-center">
-            <h1 className={`text-6xl text-green-500/75 ${anton.className}`}>
+            <h1
+              className={`text-6xl text-green-500/75 ${anton.className} max-md:text-5xl`}
+            >
               0{number}
             </h1>
-            <h1 className={`text-3xl text-white/75  ${adamina.className}`}>
+            <h1
+              className={`text-3xl text-white/75  ${adamina.className}  max-md:text-xl`}
+            >
               {title}
             </h1>
           </div>
 
           <div
-            className={`flex flex-col gap-4 text-white/50 text-lg leading-relaxed pl-6  ${adamina.className}  pl-22`}
+            className={`flex flex-col gap-4 text-white/50 text-lg leading-relaxed pl-6  ${adamina.className}  pl-22 max-md:text-base`}
           >
             <ul className="list-disc list-outside space-y-3">
               {subTitles.map((each, index) => (
@@ -168,39 +181,41 @@ function page() {
         className="flex gap-8 max-lg:flex-col w-full h-dvh justify-center items-center "
       >
         <div className="w-full gap-10 flex flex-col ">
-          <div className="flex flex-col gap-10 ">
-            <h1
-              className={`text-8xl max-xl:text-7xl text-green-500/75 ${anton.className} max-lg:text-start`}
-            >
-              Citizen Voice
-            </h1>
+          <h1
+            className={`text-8xl max-xl:text-7xl text-green-500/75 ${anton.className} max-lg:text-start`}
+          >
+            Citizen Voice
+          </h1>
+          <div className="flex flex-col gap-10 max-md:gap-3 ">
             <p
-              className={`text-white/75 text-2xl ${adamina.className} max-lg:text-start`}
+              className={`text-white/75 text-2xl ${adamina.className} max-lg:text-start  max-md:text-lg`}
             >
               Smart Paper Creation, Sharing, Answering, and Result System
             </p>
+            <p
+              className={`text-white/50 text-xl ${adamina.className} max-xl:text-xl max-lg:text-start  max-md:text-base`}
+            >
+              Qwizzy AI allows users to create papers, add questions and
+              answers, share them with others, answer papers within a timer,
+              navigate questions easily, and view detailed results showing
+              correct and wrong answers.
+            </p>
           </div>
-          <p
-            className={`text-white/50 text-xl ${adamina.className} max-xl:text-xl max-lg:text-start`}
-          >
-            Qwizzy AI allows users to create papers, add questions and answers,
-            share them with others, answer papers within a timer, navigate
-            questions easily, and view detailed results showing correct and
-            wrong answers.
-          </p>
+
           <div className="flex gap-7 flex-wrap ">
-            {database.map((each, index) => (
+            {techStack.map((each, index) => (
               <div
                 className="flex flex-col gap-3 items-center justify-between  "
                 key={index}
               >
                 <img
+                  className="w-10 h-10 max-md:w-8 max-md:h-8 "
                   src={each.icon.src}
                   alt={each.name}
-                  width={40}
-                  height={40}
+                  width={"full"}
+                  height={"full"}
                 />
-                <h1 className="text-white/75 text-base text-nowrap">
+                <h1 className="text-white/75 text-base text-nowrap  max-md:text-sm">
                   {each.name}
                 </h1>
               </div>
@@ -212,7 +227,7 @@ function page() {
             <Image
               width={800}
               height={600}
-              src={Qwizzy_AI_Hero.src}
+              src={Citizen_Voice.src}
               alt="Qwizzy AI Homepage"
               className="w-full h-auto max-lg:hidden "
               priority
@@ -227,7 +242,7 @@ function page() {
         transition={{ duration: 0.5 }}
       >
         <h1
-          className={`text-6xl text-green-500/75  max-lg:text-start ${anton.className}`}
+          className={`text-6xl text-green-500/75  max-lg:text-start ${anton.className} max-md:text-5xl`}
         >
           Features
         </h1>
