@@ -83,10 +83,11 @@ function Stack() {
                 return (
                   <div className="flex flex-col gap-3 items-center" key={index}>
                     <img
+                      className="w-15 h-15 "
                       src={each.icon.src}
                       alt={each.name}
-                      width={55}
-                      height={55}
+                      width="full"
+                      height="full"
                     />
                     <h1 className="text-white/75 text-xl text-nowrap max-md:text-lg max-sm:text-base">
                       {each.name}
@@ -112,10 +113,11 @@ function Stack() {
                 return (
                   <div className="flex flex-col gap-3 items-center" key={index}>
                     <img
+                      className="w-15 h-15 "
                       src={each.icon.src}
                       alt={each.name}
-                      width={55}
-                      height={55}
+                      width="full"
+                      height="full"
                     />
                     <h1 className="text-white/75 text-xl text-nowrap max-md:text-lg max-sm:text-base">
                       {each.name}
@@ -141,10 +143,11 @@ function Stack() {
                 return (
                   <div className="flex flex-col gap-3 items-center" key={index}>
                     <img
+                      className="w-15 h-15 "
                       src={each.icon.src}
                       alt={each.name}
-                      width={55}
-                      height={55}
+                      width="full"
+                      height="full"
                     />
                     <h1 className="text-white/75 text-xl text-nowrap max-md:text-lg max-sm:text-base">
                       {each.name}
@@ -170,10 +173,11 @@ function Stack() {
                 return (
                   <div className="flex flex-col gap-3 items-center" key={index}>
                     <img
+                      className="w-15 h-15 "
                       src={each.icon.src}
                       alt={each.name}
-                      width={55}
-                      height={55}
+                      width="full"
+                      height="full"
                     />
                     <h1 className="text-white/75 text-xl text-nowrap max-md:text-lg max-sm:text-base">
                       {each.name}

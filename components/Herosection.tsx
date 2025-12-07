@@ -5,6 +5,7 @@ import github from "@/asset/icons/github.svg";
 import linkedin from "@/asset/icons/linkedin.svg";
 import ScrollReveal from "@/components/ScrollReveal";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 function Herosection() {
   return (
@@ -16,27 +17,33 @@ function Herosection() {
         transition={{ duration: 0.45, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <img height={40} width={40} src={github.src} alt="GitHub" />
-        <img height={40} width={40} src={linkedin.src} alt="LinkedIn" />
+        <Link href="https://github.com/hashalagayendra">
+          <img height={40} width={40} src={github.src} alt="GitHub" />
+        </Link>
+        <Link href="https://www.linkedin.com/in/hashala-gayendra/">
+          <img height={40} width={40} src={linkedin.src} alt="LinkedIn" />
+        </Link>
       </motion.div>
       <div className=" flex flex-col  justify-center gap-10  ">
         <h1
-          className={` text-7xl font-bold text-white/75 ${anton.className} tracking-wide leading-25 max-lg:text-start max-md:text-5xl  max-md:leading-20 `}
+          className={` text-8xl font-bold text-white/75 ${anton.className} tracking-wide leading-30 max-lg:text-start max-md:text-6xl max-lg:text-7xl  max-md:leading-20 `}
         >
-          <span>Undergraduate</span> <br />
-          <span className={`text-green-500/75`}>Fullstack Developer</span>
+          <span>Hi, I'm</span> <br />
+          <span className={`text-green-500/75`}>Hashala Gayendra</span>
         </h1>
         <h1
           className={`text-white/75 w-full max-w-2xl text-2xl leading-10 tracking-wider max-lg:text-start  max-lg:self-start   max-md:text-lg ${adamina.className}`}
         >
-          Hi! I'm Tajmirul, a creative frontend developer with 3+ years of
-          experience building high-performance, scalable, and responsive web
-          solutions.
+          I’m an undergraduate IT student and full-stack developer, passionate
+          about building modern, scalable, and high-performance web
+          applications.
         </h1>
         <div
-          className={`bg-green-500/80 hover:bg-green-500 w-fit py-2 px-5  max-lg:self-start `}
+          className={`bg-green-500/75 hover:bg-black transition-colors duration-500 ease-in-out w-fit py-4 px-8 max-lg:py-2 max-lg:px-4 max-lg:self-start cursor-pointer`}
         >
-          <h1 className={`tracking-wider ${adamina.className}`}>Download CV</h1>
+          <h1 className={`tracking-wider ${adamina.className} lg:text-xl`}>
+            Download CV
+          </h1>
         </div>
       </div>
     </section>
