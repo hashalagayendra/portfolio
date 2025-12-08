@@ -3,8 +3,6 @@ import React from "react";
 import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
 import Qwizzy_AI_Hero from "@/asset/projects/Qwizzy_AI/homepage.png";
-import v1 from "@/asset/videos/QwizzyAI/v1.webp";
-import v2 from "@/asset/videos/QwizzyAI/v2.webp";
 
 import postgresssql from "@/asset/icons/postgresql.svg";
 import prisma from "@/asset/icons/prisma.svg";
@@ -13,6 +11,7 @@ import nextjs from "@/asset/icons/nextjs.png";
 import nextauthjs from "@/asset/icons/nextauthjs.png";
 import { motion } from "motion/react";
 function page() {
+  const v1 = "/videos/QwizzyAI/v1.webm";
   const techStack: { name: string; icon: any }[] = [
     { name: "Next.js", icon: nextjs },
     { name: "NextAuth.js", icon: nextauthjs },
@@ -31,7 +30,7 @@ function page() {
         "Credential-Based Login supports traditional login with email and password",
         "Secure Password Hashing hashes passwords using bcrypt for protection.",
       ],
-      url: v1.src,
+      url: "",
     },
     {
       title: "User Dashboard Features",
@@ -41,7 +40,7 @@ function page() {
         "Answered Papers View displays papers the user has already completed",
         "Assigned Papers View lists papers assigned by others for the user to answer",
       ],
-      url: v2.src,
+      url: Qwizzy_AI_Hero.src,
     },
     {
       title: "Paper Creation System",
@@ -153,12 +152,18 @@ function page() {
           </div>
         </div>
         <div className="flex-1 justify-start flex max-lg:justify-center w-full max-lg:hidden">
-          <Image
+          {/* <Image
             src={url}
             alt={`Qwizzy AI Feature - ${title}`}
             width={600}
             height={400}
-          />
+          /> */}
+
+          <video
+            src={v1}
+            controls
+            className="rounded-xl shadow-lg w-full"
+          ></video>
         </div>
       </div>
     );
