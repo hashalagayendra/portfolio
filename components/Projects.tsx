@@ -36,7 +36,7 @@ function Projects() {
   }) {
     return (
       <>
-        <div className=" max-lg:flex-col max-lg:gap-6 flex">
+        <div className=" max-lg:flex-col max-lg:gap-6 flex ">
           <div className=" flex-2  ">
             <div>
               <h1
@@ -71,7 +71,8 @@ function Projects() {
             ></Image>
           </div>
           <div
-            className={`bg-green-500/80 hover:bg-green-500 w-fit py-2 px-5 mt-5 max-lg:flex max-lg:self-center max-lg:mb-10 hidden `}
+            onClick={() => router.push(navigation)}
+            className={`bg-green-500/80 hover:bg-green-500 w-fit py-3 px-10 mt-5 max-lg:flex max-lg:self-center max-lg:mb-10 hidden `}
           >
             <h1
               className={`tracking-wider text-lg max-md:text-base max-sm:text-sm ${adamina.className} `}
@@ -87,7 +88,7 @@ function Projects() {
   }
 
   return (
-    <section className="w-full  ">
+    <section className="w-full  xl:px-30  px-10  max-md:px-4 ">
       <div>
         <h1
           className={`text-4xl text-green-500/75 mb-10 max-lg:text-start max-md:text-3xl   ${anton.className}`}
@@ -95,7 +96,7 @@ function Projects() {
           SELECTED PROJECTS
         </h1>
       </div>
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col md:gap-10 gap-3">
         {projectDetails.map((each, index) => (
           <Card
             key={index}

@@ -19,10 +19,13 @@ export default function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className=" xl:px-30  px-10  max-md:px-4"
+      className=""
     >
-      <Herosection />
-      <div className="flex flex-col gap-30 ">
+      <div className="  max-w-[1920px] mx-auto">
+        <Herosection />
+      </div>
+
+      <div className="flex flex-col gap-30 max-w-[1920px] mx-auto">
         <Aboutme />
         <Stack />
         <Projects />

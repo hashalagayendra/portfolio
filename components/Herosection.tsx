@@ -9,9 +9,9 @@ import Link from "next/link";
 
 function Herosection() {
   return (
-    <section className="w-full h-dvh flex flex-col justify-center relative">
+    <section className="w-full h-dvh flex flex-col justify-center relative    xl:px-30  px-10  max-md:px-4 overflow-hidden">
       <motion.div
-        className="flex flex-col gap-10 absolute bottom-30 xl:-right-25 right-0 max-lg:hidden"
+        className="flex flex-col gap-10 absolute bottom-30 right-10 max-lg:hidden"
         initial={{ opacity: 0, x: 16 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.45, ease: "easeOut" }}

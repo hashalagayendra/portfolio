@@ -60,7 +60,7 @@ function Stack() {
     { name: "Prisma", icon: prisma },
   ];
   return (
-    <section className="w-full">
+    <section className="w-full  xl:px-30  px-10  max-md:px-4">
       <div>
         <h1
           className={`text-4xl text-green-500/75 mb-10 ${anton.className} max-lg:text-start max-lg:text-4xl max-md:text-3xl`}
@@ -83,7 +83,7 @@ function Stack() {
                 return (
                   <div className="flex flex-col gap-3 items-center" key={index}>
                     <img
-                      className="w-15 h-15 "
+                      className="md:w-15 md:h-15 w-12 h-12 "
                       src={each.icon.src}
                       alt={each.name}
                       width="full"
@@ -113,7 +113,7 @@ function Stack() {
                 return (
                   <div className="flex flex-col gap-3 items-center" key={index}>
                     <img
-                      className="w-15 h-15 "
+                      className="md:w-15 md:h-15 w-12 h-12 "
                       src={each.icon.src}
                       alt={each.name}
                       width="full"
@@ -143,7 +143,7 @@ function Stack() {
                 return (
                   <div className="flex flex-col gap-3 items-center" key={index}>
                     <img
-                      className="w-15 h-15 "
+                      className="md:w-15 md:h-15 w-12 h-12 "
                       src={each.icon.src}
                       alt={each.name}
                       width="full"
@@ -173,7 +173,7 @@ function Stack() {
                 return (
                   <div className="flex flex-col gap-3 items-center" key={index}>
                     <img
-                      className="w-15 h-15 "
+                      className="md:w-15 md:h-15 w-12 h-12 "
                       src={each.icon.src}
                       alt={each.name}
                       width="full"
