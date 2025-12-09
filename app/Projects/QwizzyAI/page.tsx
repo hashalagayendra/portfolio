@@ -3,6 +3,7 @@ import React from "react";
 import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
 import Qwizzy_AI_Hero from "@/asset/projects/Qwizzy_AI/homepage.png";
+import banner from "@/asset/projects/Qwizzy_AI/banner.png";
 
 import postgresssql from "@/asset/icons/postgresql.svg";
 import prisma from "@/asset/icons/prisma.svg";
@@ -12,6 +13,14 @@ import nextauthjs from "@/asset/icons/nextauthjs.png";
 import { motion } from "motion/react";
 function page() {
   const v1 = "/videos/QwizzyAI/v1.webm";
+  const v2 = "/videos/QwizzyAI/v2.webm";
+  const v3 = "/videos/QwizzyAI/v3.webm";
+  const v4 = "/videos/QwizzyAI/v4.webm";
+  const v5 = "/videos/QwizzyAI/v5.webm";
+  const v6 = "/videos/QwizzyAI/v6.webm";
+  const v7 = "/videos/QwizzyAI/v7.webm";
+  const v8 = "/videos/QwizzyAI/v8.webm";
+  const v9 = "/videos/QwizzyAI/v9.webm";
   const techStack: { name: string; icon: any }[] = [
     { name: "Next.js", icon: nextjs },
     { name: "NextAuth.js", icon: nextauthjs },
@@ -30,7 +39,7 @@ function page() {
         "Credential-Based Login supports traditional login with email and password",
         "Secure Password Hashing hashes passwords using bcrypt for protection.",
       ],
-      url: "",
+      url: v1,
     },
     {
       title: "User Dashboard Features",
@@ -40,7 +49,7 @@ function page() {
         "Answered Papers View displays papers the user has already completed",
         "Assigned Papers View lists papers assigned by others for the user to answer",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v2,
     },
     {
       title: "Paper Creation System",
@@ -51,7 +60,7 @@ function page() {
         "Set Time Limit defines the duration for completing the paper",
         "Assign Paper to Users allows selection of one or multiple registered users",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v3,
     },
     {
       title: "Question Creation",
@@ -60,7 +69,7 @@ function page() {
         "Manual Question Entry allows users to type questions and add multiple answer options",
         "AI-Powered Question Generation creates questions and answers automatically from a given topic or description",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v4,
     },
     {
       title:
@@ -71,7 +80,7 @@ function page() {
         "Set Question Count lets users choose how many questions should be created",
         "Set Answer Count allows defining how many answer options each question should have",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v5,
     },
     {
       title: "Paper Answering System",
@@ -81,7 +90,7 @@ function page() {
         "Timed Paper Attempt allows users to answer assigned papers within the given time",
         "Question Navigation lets users skip and move between questions using the sidebar",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v6,
     },
     {
       title: "Paper Marking and Review",
@@ -90,7 +99,7 @@ function page() {
         "View Marks allows users to see their score after submitting a paper",
         "Answer Review lets users check which answers were correct and which were wrong",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v7,
     },
     {
       title: "Paper Resetting",
@@ -99,7 +108,7 @@ function page() {
         "Reset Own Paper allows users to reset and reattempt papers they have created",
         "Assigned Paper Restriction prevents users from resetting papers assigned by others",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v8,
     },
     {
       title: "PDF Download",
@@ -108,7 +117,7 @@ function page() {
         "Download Paper allows users to save any paper as a PDF file",
         "Include Questions and Answers lets the PDF contain all questions and their options",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v9,
     },
   ];
 
@@ -160,9 +169,12 @@ function page() {
           /> */}
 
           <video
-            src={v1}
+            width={700}
+            height={700}
+            poster={banner.src}
+            src={url}
             controls
-            className="rounded-xl shadow-lg w-full"
+            className=""
           ></video>
         </div>
       </div>

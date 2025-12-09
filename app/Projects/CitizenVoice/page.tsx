@@ -4,7 +4,7 @@ import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
 import Qwizzy_AI_Hero from "@/asset/projects/Qwizzy_AI/homepage.png";
 import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
-
+import banner from "@/asset/projects/Citizen_Voice/banner.png";
 import postgresssql from "@/asset/icons/postgresql.svg";
 import prisma from "@/asset/icons/prisma.svg";
 import tailwindcss from "@/asset/icons/tailwindcss.png";
@@ -16,6 +16,16 @@ import gemini from "@/asset/icons/Gemini.png";
 import cloudinary from "@/asset/icons/cloudinary.png";
 import { motion } from "motion/react";
 function page() {
+  const v1 = "/videos/CitizenVoice/v11.webm";
+  const v2 = "/videos/CitizenVoice/v22.webm";
+  const v3 = "/videos/CitizenVoice/v33.webm";
+  const v4 = "/videos/CitizenVoice/v44.webm";
+  const v5 = "/videos/CitizenVoice/v55.webm";
+  const v6 = "/videos/CitizenVoice/v66.webm";
+  const v7 = "/videos/CitizenVoice/v77.webm";
+  const v8 = "/videos/CitizenVoice/v88.webm";
+  const v9 = "/videos/CitizenVoice/v99.webm";
+
   const techStack: { name: string; icon: any }[] = [
     { name: "Next.js", icon: nextjs },
     { name: "NextAuth.js", icon: nextauthjs },
@@ -37,7 +47,7 @@ function page() {
         "Secure Password Hashing implemented using bcrypt.",
         "Role-Based Access Control separates Admin and User permissions.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v1,
     },
     {
       title: "Dynamic Complaint Categories & Scalable Form System",
@@ -48,7 +58,7 @@ function page() {
         "Adding new complaint types only requires selecting existing components—no heavy development.",
         "Built with components like: DescriptionInput, MapSelection, DatePicker, FileDropBox, AnyWitnesses, AffectedAreaSize, IsItOngoing, PersonInvolved, DepartmentSelection, ConstructionTypeSelection, IsItCurrentlyDangerous, FacilityTypeSelector, NameOfFacility.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v2,
     },
     {
       title: "Multi-Stage Complaint Submission Flow",
@@ -60,7 +70,7 @@ function page() {
         "Stage 4: Final review and confirmation step.",
         "Stage 5: Downloadable receipt provided as evidence for the citizen.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v3,
     },
     {
       title: "Interactive Location Selection (Leaflet.js)",
@@ -69,7 +79,7 @@ function page() {
         "Integrated Leaflet.js map for selecting exact complaint locations.",
         "Offers precise geolocation support for better issue tracking.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v4,
     },
     {
       title: "Secure Media Uploads with Cloudinary",
@@ -78,7 +88,7 @@ function page() {
         "All uploaded images and relevant files stored safely using Cloudinary.",
         "Provides fast delivery and reliable cloud storage.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v5,
     },
     {
       title: "Citizen Legal Help Chatbot Powered by Gemini AI",
@@ -87,7 +97,7 @@ function page() {
         "Built-in AI chatbot that answers legal questions related to Sri Lankan laws.",
         "Helps citizens understand rights, procedures, and available support.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v6,
     },
     {
       title: "Real-Time User–Admin Chat System",
@@ -97,7 +107,7 @@ function page() {
         "Powered by Firebase Realtime Database for instant communication.",
         "Enables fast clarification and reduces waiting time for updates.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v7,
     },
     {
       title: "Separate User & Admin Dashboards",
@@ -106,7 +116,7 @@ function page() {
         "User Dashboard : View complaint progress and detailed status updates and Download receipts and track communication with admins.",
         "Admin Dashboard: Manage complaints with filtering, sorting, status updates, real-time chat, and transparent progress tracking.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v8,
     },
     {
       title: "Fully Mobile-Responsive Interface",
@@ -116,7 +126,7 @@ function page() {
         "Multi-stage complaint flow remains easy to navigate on small screens",
         "Map selection, file uploads, and AI chatbot are optimized for touch interactions.",
       ],
-      url: Qwizzy_AI_Hero.src,
+      url: v9,
     },
   ];
 
@@ -134,8 +144,8 @@ function page() {
     number: number;
   }) {
     return (
-      <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center">
-        <div className="flex-1 flex flex-col gap-5 max-w-3xl w-full">
+      <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center  ">
+        <div className="flex-1  flex flex-col gap-5 l w-full max-w-3xl">
           <div className="flex  gap-5  items-center">
             <h1
               className={`text-6xl text-green-500/75 ${anton.className} max-md:text-5xl`}
@@ -159,13 +169,21 @@ function page() {
             </ul>
           </div>
         </div>
-        <div className="flex-1 justify-start flex max-lg:justify-center w-full max-lg:hidden">
-          <Image
+        <div className="flex-1 justify-center flex max-lg:justify-center w-full max-lg:hidden items-center ">
+          {/* <Image
             src={url}
             alt={`Qwizzy AI Feature - ${title}`}
             width={600}
             height={400}
-          />
+          /> */}
+          <video
+            width={700}
+            height={700}
+            poster={banner.src}
+            src={url}
+            controls
+            className=" "
+          ></video>
         </div>
       </div>
     );
@@ -190,15 +208,17 @@ function page() {
             <p
               className={`text-white/75 text-2xl ${adamina.className} max-lg:text-start  max-md:text-lg`}
             >
-              Smart Paper Creation, Sharing, Answering, and Result System
+              Smart Public Complaint Submission, Tracking, and Legal Assistance
+              System
             </p>
             <p
               className={`text-white/50 text-xl ${adamina.className} max-xl:text-xl max-lg:text-start  max-md:text-base`}
             >
-              Qwizzy AI allows users to create papers, add questions and
-              answers, share them with others, answer papers within a timer,
-              navigate questions easily, and view detailed results showing
-              correct and wrong answers.
+              Citizen Voice is a platform where users can easily submit public
+              complaints, track their status, and communicate with admins in
+              real time. It also includes an AI assistant that provides legal
+              guidance, making the reporting process simple, fast, and
+              user-friendly for all citizens.
             </p>
           </div>
 
@@ -226,7 +246,7 @@ function page() {
           <div className="w-full max-w-2xl">
             <Image
               width={800}
-              height={600}
+              height={1000}
               src={Citizen_Voice.src}
               alt="Qwizzy AI Homepage"
               className="w-full h-auto max-lg:hidden "
@@ -242,20 +262,23 @@ function page() {
         transition={{ duration: 0.5 }}
       >
         <h1
-          className={`text-6xl text-green-500/75  max-lg:text-start ${anton.className} max-md:text-5xl`}
+          className={`text-6xl text-green-500/75  max-lg:text-start ${anton.className} max-md:text-5xl md:mt-16 xl:mt-10`}
         >
           Features
         </h1>
-        {features.map((each, index) => (
-          <FeatureCard
-            key={index}
-            title={each.title}
-            description={each.description}
-            url={each.url}
-            subTitles={each.subTitles}
-            number={index + 1}
-          />
-        ))}
+        <div className="">
+          {" "}
+          {features.map((each, index) => (
+            <FeatureCard
+              key={index}
+              title={each.title}
+              description={each.description}
+              url={each.url}
+              subTitles={each.subTitles}
+              number={index + 1}
+            />
+          ))}
+        </div>
       </motion.div>
     </section>
   );

@@ -35,9 +35,9 @@ function Projects() {
     navigation: string;
   }) {
     return (
-      <>
-        <div className=" max-lg:flex-col max-lg:gap-6 flex ">
-          <div className=" flex-2  ">
+      <div className=" ">
+        <div className=" max-lg:flex-col max-lg:gap-6 flex gap-4 ">
+          <div className="   max-w-2xl  ">
             <div>
               <h1
                 className={`text-6xl text-white/75 ${anton.className} max-lg:text-start max-lg:text-5xl `}
@@ -62,17 +62,17 @@ function Projects() {
               </h1>
             </div>
           </div>
-          <div className=" flex-3 flex  justify-center  items-center ">
+          <div className=" flex  justify-start lg:justify-center w-full md:min-w-lg items-center ">
             <Image
               src={image.src}
               alt="project image"
-              width={600}
-              height={400}
+              width={700}
+              height={700}
             ></Image>
           </div>
           <div
             onClick={() => router.push(navigation)}
-            className={`bg-green-500/80 hover:bg-green-500 w-fit py-3 px-10 mt-5 max-lg:flex max-lg:self-center max-lg:mb-10 hidden `}
+            className={`bg-green-500/80 hover:bg-green-500 w-fit py-3 px-10 mt-5 max-lg:flex max-lg:self-start max-lg:mb-10 hidden `}
           >
             <h1
               className={`tracking-wider text-lg max-md:text-base max-sm:text-sm ${adamina.className} `}
@@ -83,7 +83,7 @@ function Projects() {
         </div>
         {/* Horizantal line */}
         <div className="h-0.5 w-full bg-white/20 my-5 text-6xl text-white"></div>
-      </>
+      </div>
     );
   }
 
