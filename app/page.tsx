@@ -25,7 +25,7 @@ export default function Home() {
         <Herosection />
       </div>
 
-      <div className="flex flex-col gap-30 max-w-[1920px] mx-auto">
+      <div className="flex flex-col gap-40 max-w-[1920px] mx-auto mt-20">
         <Aboutme />
         <Stack />
         <Projects />

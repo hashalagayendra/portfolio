@@ -1,9 +1,11 @@
+"use client";
 import React from "react";
 import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
 import Qwizzy_AI from "@/asset/projects/Qwizzy_AI/homepage.png";
 import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
 import { useRouter } from "next/navigation";
+import { ArrowUpRight } from "lucide-react";
 
 function Projects() {
   const router = useRouter();
@@ -23,88 +25,67 @@ function Projects() {
       navigation: "/Projects/CitizenVoice",
     },
   ];
-  function Card({
-    image,
-    title,
-    description,
-    navigation,
-  }: {
-    image: any;
-    title: string;
-    description: string;
-    navigation: string;
-  }) {
-    return (
-      <div className=" ">
-        <div className=" max-lg:flex-col max-lg:gap-6 flex gap-4 ">
-          <div className="   max-w-2xl  ">
-            <div>
-              <h1
-                className={`text-6xl text-white/75 ${anton.className} max-lg:text-start max-lg:text-5xl `}
-              >
-                {title}
-              </h1>
-              <p
-                className={`text-white/50 mt-5 text-xl leading-8 max-md:text-base max-md:leading-7 max-sm:text-sm max-sm:leading-6  ${adamina.className}`}
-              >
-                {description}
-              </p>
-            </div>
-
-            <div
-              className={`bg-green-500/80 hover:bg-green-500 w-fit py-2 px-5 mt-5 max-lg:hidden `}
-            >
-              <h1
-                onClick={() => router.push(navigation)}
-                className={`tracking-wider text-lg max-md:text-base max-sm:text-sm ${adamina.className} cursor-pointer`}
-              >
-                View Full Details
-              </h1>
-            </div>
-          </div>
-          <div className=" flex  justify-start lg:justify-center w-full md:min-w-lg items-center ">
-            <Image
-              src={image.src}
-              alt="project image"
-              width={700}
-              height={700}
-            ></Image>
-          </div>
-          <div
-            onClick={() => router.push(navigation)}
-            className={`bg-green-500/80 hover:bg-green-500 w-fit py-3 px-10 mt-5 max-lg:flex max-lg:self-start max-lg:mb-10 hidden `}
-          >
-            <h1
-              className={`tracking-wider text-lg max-md:text-base max-sm:text-sm ${adamina.className} `}
-            >
-              View Full Details
-            </h1>
-          </div>
-        </div>
-        {/* Horizantal line */}
-        <div className="h-0.5 w-full bg-white/20 my-5 text-6xl text-white"></div>
-      </div>
-    );
-  }
 
   return (
-    <section className="w-full  xl:px-30  px-10  max-md:px-4 ">
-      <div>
+    <section className="w-full  xl:px-32 px-6 md:px-12">
+      <div className="mb-20">
         <h1
-          className={`text-4xl text-green-500/75 mb-10 max-lg:text-start max-md:text-3xl   ${anton.className}`}
+          className={`text-5xl md:text-6xl text-white/75 mb-4 ${anton.className}`}
         >
-          SELECTED PROJECTS
+          SELECTED <span className="text-green-500/75">PROJECTS</span>
         </h1>
       </div>
-      <div className="flex flex-col md:gap-10 gap-3">
-        {projectDetails.map((each, index) => (
-          <Card
-            key={index}
-            image={each.image}
-            title={each.title}
-            description={each.description}
-            navigation={each.navigation}
-          />
+
+      <div className="flex flex-col gap-20">
+        {projectDetails.map((project, index) => (
+          <div key={index} className="group">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* Text Content */}
+              <div className="lg:col-span-5 flex flex-col gap-8 order-2 lg:order-1">
+                <div>
+                  <h2
+                    className={`text-4xl md:text-6xl text-green-500/75 mb-6 ${anton.className}`}
+                  >
+                    {project.title}
+                  </h2>
+                  <p
+                    className={`text-lg text-white/60 leading-relaxed ${adamina.className}`}
+                  >
+                    {project.description}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => router.push(project.navigation)}
+                  className={`flex items-center gap-3 text-lg text-white hover:text-green-400 transition-colors w-fit group/btn ${adamina.className}`}
+                >
+                  <span className="border-b border-transparent group-hover/btn:border-green-400 transition-all">
+                    See more Details
+                  </span>
+                  <ArrowUpRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                </button>
+              </div>
+
+              {/* Image */}
+              <div
+                className="lg:col-span-7 order-1 lg:order-2 cursor-pointer"
+                onClick={() => router.push(project.navigation)}
+              >
+                <div className="relative w-full aspect-video bg-white/5 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+              </div>
+            </div>
+            {/* Separator Line - Only show if not the last item */}
+            {index !== projectDetails.length - 1 && (
+              <div className="w-full h-px bg-white/10 mt-20" />
+            )}
+          </div>
         ))}
       </div>
     </section>

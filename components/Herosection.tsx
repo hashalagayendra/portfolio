@@ -31,20 +31,27 @@ function Herosection() {
           <span>Hi, I'm</span> <br />
           <span className={`text-green-500/75`}>Hashala Gayendra</span>
         </h1>
-        <h1
-          className={`text-white/75 w-full max-w-2xl text-2xl leading-10 tracking-wider max-lg:text-start  max-lg:self-start   max-md:text-lg ${adamina.className}`}
-        >
-          I’m an undergraduate IT student and full-stack developer, passionate
-          about building modern, scalable, and high-performance web
-          applications.
-        </h1>
         <div
-          className={`bg-green-500/75 hover:bg-black transition-colors duration-500 ease-in-out w-fit py-4 px-8 max-lg:py-2 max-lg:px-4 max-lg:self-start cursor-pointer`}
+          className={`text-white/75 w-full max-w-3xl text-2xl leading-10 tracking-wider max-lg:text-start  max-lg:self-start   max-md:text-lg ${adamina.className} flex flex-col gap-4`}
+        >
+          <p>
+            Welcome to my portfolio! I’m passionate about creating modern,
+            scalable, and reliable web applications.
+          </p>
+          <p className="text-white/50 text-xl max-md:text-base">
+            Explore my work to see how I build full-stack solutions, AI-powered
+            systems, and cloud-ready applications.
+          </p>
+        </div>
+        <a
+          href="/cv/R.A.H.G Ranasingha_CV.pdf"
+          download="R.A.H.G Ranasingha_CV.pdf"
+          className={`bg-green-500/65 hover:-translate-y-1 hover:scale-102 hover:bg-green-500/75 transition-all  duration-500 ease-in-out w-fit py-4 px-8 max-lg:py-2 max-lg:px-4 max-lg:self-start cursor-pointer`}
         >
           <h1 className={`tracking-wider ${adamina.className} lg:text-xl`}>
             Download CV
           </h1>
-        </div>
+        </a>
       </div>
     </section>
   );

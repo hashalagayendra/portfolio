@@ -23,7 +23,7 @@ import redux from "@/asset/icons/redux.png";
 import tailwindcss from "@/asset/icons/tailwindcss.png";
 import typescript from "@/asset/icons/typescript.svg";
 
-import { anton } from "@/app/layout";
+import { adamina, anton } from "@/app/layout";
 
 function Stack() {
   const frontend: { name: string; icon: any }[] = [
@@ -59,135 +59,65 @@ function Stack() {
     { name: "PostgreSQL", icon: postgresssql },
     { name: "Prisma", icon: prisma },
   ];
+
+  const StackCategory = ({
+    title,
+    items,
+    isLast = false,
+  }: {
+    title: string;
+    items: { name: string; icon: any }[];
+    isLast?: boolean;
+  }) => (
+    <div className="group">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="lg:col-span-4">
+          <h2
+            className={`text-4xl md:text-5xl text-white/75 ${anton.className}`}
+          >
+            {title}
+          </h2>
+        </div>
+        <div className="lg:col-span-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-y-12 gap-x-8">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center gap-4 group/item"
+            >
+              <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center transition-transform duration-300 group-hover/item:-translate-y-1">
+                <img
+                  src={item.icon.src}
+                  alt={item.name}
+                  className="w-full h-full object-contain opacity-80 group-hover/item:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <span
+                className={`text-white/40 text-sm text-center group-hover/item:text-green-400 transition-colors ${adamina.className}`}
+              >
+                {item.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+      {!isLast && <div className="w-full h-px bg-white/10 mt-16 mb-16" />}
+    </div>
+  );
+
   return (
-    <section className="w-full  xl:px-30  px-10  max-md:px-4">
-      <div>
+    <section className="w-full  xl:px-32 px-6 md:px-12">
+      <div className="mb-20">
         <h1
-          className={`text-4xl text-green-500/75 mb-10 ${anton.className} max-lg:text-start max-lg:text-4xl max-md:text-3xl`}
+          className={`text-5xl md:text-6xl text-white/75 mb-4 ${anton.className}`}
         >
-          MY TECH STACK
+          MY TECH <span className="text-green-500/75">STACK</span>
         </h1>
       </div>
-      <div className="flex flex-col gap-20">
-        <div>
-          <div className="w-full  flex justify-between max-lg:flex-col">
-            <div className="flex-1 max-lg:text-start max-lg:mb-10">
-              <h1
-                className={`text-white/75 text-6xl ${anton.className} max-lg:text-5xl`}
-              >
-                Frontend
-              </h1>
-            </div>
-            <div className="flex-2  lg:grid-cols-4 sm:grid-cols-4 grid-cols-3 grid gap-12 ">
-              {frontend.map((each, index) => {
-                return (
-                  <div className="flex flex-col gap-3 items-center" key={index}>
-                    <img
-                      className="md:w-15 md:h-15 w-12 h-12 "
-                      src={each.icon.src}
-                      alt={each.name}
-                      width="full"
-                      height="full"
-                    />
-                    <h1 className="text-white/75 text-xl text-nowrap max-md:text-lg max-sm:text-base">
-                      {each.name}
-                    </h1>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div className="w-full  flex justify-between max-lg:flex-col">
-            <div className="flex-1 max-lg:text-start max-lg:mb-10">
-              <h1
-                className={`text-white/75 text-6xl ${anton.className} max-lg:text-5xl `}
-              >
-                Backend
-              </h1>
-            </div>
-            <div className="flex-2  lg:grid-cols-4 sm:grid-cols-4 grid-cols-3 grid gap-12 ">
-              {backend.map((each, index) => {
-                return (
-                  <div className="flex flex-col gap-3 items-center" key={index}>
-                    <img
-                      className="md:w-15 md:h-15 w-12 h-12 "
-                      src={each.icon.src}
-                      alt={each.name}
-                      width="full"
-                      height="full"
-                    />
-                    <h1 className="text-white/75 text-xl text-nowrap max-md:text-lg max-sm:text-base">
-                      {each.name}
-                    </h1>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div className="w-full  flex justify-between max-lg:flex-col">
-            <div className="flex-1 max-lg:text-start max-lg:mb-10">
-              <h1
-                className={`text-white/75 text-6xl ${anton.className} max-lg:text-5xl `}
-              >
-                Database
-              </h1>
-            </div>
-            <div className="flex-2  lg:grid-cols-4 sm:grid-cols-4 grid-cols-3 grid gap-12 ">
-              {database.map((each, index) => {
-                return (
-                  <div className="flex flex-col gap-3 items-center" key={index}>
-                    <img
-                      className="md:w-15 md:h-15 w-12 h-12 "
-                      src={each.icon.src}
-                      alt={each.name}
-                      width="full"
-                      height="full"
-                    />
-                    <h1 className="text-white/75 text-xl text-nowrap max-md:text-lg max-sm:text-base">
-                      {each.name}
-                    </h1>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div className="w-full  flex justify-between max-lg:flex-col">
-            <div className="flex-1 max-lg:text-start max-lg:mb-10">
-              <h1
-                className={`text-white/75 text-6xl ${anton.className} max-lg:text-5xl `}
-              >
-                Others
-              </h1>
-            </div>
-            <div className="flex-2  lg:grid-cols-4 sm:grid-cols-4 grid-cols-3 grid gap-12 ">
-              {tools.map((each, index) => {
-                return (
-                  <div className="flex flex-col gap-3 items-center" key={index}>
-                    <img
-                      className="md:w-15 md:h-15 w-12 h-12 "
-                      src={each.icon.src}
-                      alt={each.name}
-                      width="full"
-                      height="full"
-                    />
-                    <h1 className="text-white/75 text-xl text-nowrap max-md:text-lg max-sm:text-base">
-                      {each.name}
-                    </h1>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+      <div className="flex flex-col">
+        <StackCategory title="Frontend" items={frontend} />
+        <StackCategory title="Backend" items={backend} />
+        <StackCategory title="Database" items={database} />
+        <StackCategory title="Tools" items={tools} isLast />
       </div>
     </section>
   );

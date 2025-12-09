@@ -1,120 +1,225 @@
+"use client";
 import React from "react";
-import { adamina } from "@/app/layout";
+import { adamina, anton } from "@/app/layout";
 import Link from "next/link";
 import github from "@/asset/icons/github.svg";
 import linkedin from "@/asset/icons/linkedin.svg";
-import { Mail, Phone } from "lucide-react";
-import { motion } from "framer-motion";
+import { Mail, Phone, Send, Loader2 } from "lucide-react";
+import { useState } from "react";
+import axios from "axios";
 
 function Contact() {
+  const [form, setForm] = useState({ name: "", clientemail: "", message: "" });
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const res = await axios.post("/api/email", form);
+      const data = await res.data;
+      setStatus(data.success ? "Message Sent!" : "Failed to send.");
+      if (data.success) {
+        setForm({ name: "", clientemail: "", message: "" });
+      }
+    } catch (error) {
+      setStatus("Failed to send.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="w-full   pt-10 flex flex-col gap-10 -mt-20 relative  xl:px-30  px-10  max-md:px-4 overflow-hidden  ">
-      <h1 className={`text-5xl text-white/75 ${adamina.className}`}>Contact</h1>
-      <div className="w-full flex  xl:justify-start justify-center ">
-        <div className="mt-8 w-full max-w-3xl space-y-8  ">
-          {/* Email + Name in two columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="w-full">
-              <h1 className={`text-xl text-white/75 ${adamina.className}`}>
-                Email
-              </h1>
-              <input
-                className={`text-white/80 border-b border-white/25 focus:border-green-400 focus:outline-none bg-transparent w-full py-2 mt-2 placeholder-white/40 transition-colors ${adamina.className}`}
-                type="email"
-                placeholder="you@example.com"
-              />
-            </div>
-            <div className="w-full">
-              <h1 className={`text-xl text-white/75 ${adamina.className}`}>
-                Name
-              </h1>
-              <input
-                className={`text-white/80 border-b border-white/25 focus:border-green-400 focus:outline-none bg-transparent w-full py-2 mt-2 placeholder-white/40 transition-colors ${adamina.className}`}
-                type="text"
-                placeholder="Your full name"
-              />
-            </div>
-          </div>
+    <div
+      className="w-full  relative xl:px-32 px-6 md:px-12 overflow-hidden pb-20"
+      id="contact"
+    >
+      {/* Background decoration */}
 
-          {/* Description */}
-          <div className="w-full">
-            <h1 className={`text-xl text-white/75 ${adamina.className}`}>
-              Description
-            </h1>
-            <textarea
-              className={`text-white/80 border-b border-white/25 focus:border-green-400 focus:outline-none bg-transparent w-full py-2 mt-2 placeholder-white/40 transition-colors resize-y ${adamina.className}`}
-              rows={4}
-              placeholder="Tell me about your project or inquiry"
-            />
-          </div>
-
-          {/* CTA */}
-          <div className="w-full flex justify-end md:mb-10 ">
-            <button
-              className={`bg-green-500/80 hover:bg-green-500 px-10 py-2  border border-green-600 shadow-sm transition-colors ${adamina.className} `}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        {/* Left Column: Text Content & Contact Info */}
+        <div className="flex flex-col gap-12">
+          <div>
+            <h1
+              className={`text-5xl md:text-6xl text-white/75 mb-6 ${anton.className}`}
             >
-              <h1 className="text-lg"> Send</h1>
-            </button>
+              Get in <span className="text-green-500/75">Touch</span>
+            </h1>
+            <p
+              className={`text-lg text-white/60 leading-relaxed max-w-md ${adamina.className}`}
+            >
+              I am currently seeking internship opportunities to apply my skills
+              in full-stack development and gain hands-on industry experience.
+              If you have an opening or just want to connect, feel free to reach
+              out!
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <Link
+              href="mailto:hashalagayendra@gmail.com"
+              className="group w-fit"
+            >
+              <div className="flex gap-5 items-center">
+                <div className="group-hover:text-green-400 transition-colors">
+                  <Mail className="w-6 h-6 text-white/80 group-hover:text-green-400 transition-colors" />
+                </div>
+                <div>
+                  <h3 className={`text-sm text-white/40 ${adamina.className}`}>
+                    Email
+                  </h3>
+                  <p
+                    className={`text-white/90 group-hover:text-green-400 transition-colors ${adamina.className}`}
+                  >
+                    hashalagayendra@gmail.com
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="tel:+94781958069" className="group w-fit">
+              <div className="flex gap-5 items-center">
+                <div className="group-hover:text-green-400 transition-colors">
+                  <Phone className="w-6 h-6 text-white/80 group-hover:text-green-400 transition-colors" />
+                </div>
+                <div>
+                  <h3 className={`text-sm text-white/40 ${adamina.className}`}>
+                    Phone
+                  </h3>
+                  <p
+                    className={`text-white/90 group-hover:text-green-400 transition-colors ${adamina.className}`}
+                  >
+                    +94 78 195 8069
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <div className="flex gap-6 mt-4">
+              <Link
+                href="https://github.com/hashalagayendra"
+                target="_blank"
+                className="group"
+              >
+                <div className="transition-colors">
+                  <img
+                    src={github.src}
+                    alt="GitHub"
+                    className="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/hashala"
+                target="_blank"
+                className="group"
+              >
+                <div className="transition-colors">
+                  <img
+                    src={linkedin.src}
+                    alt="LinkedIn"
+                    className="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
 
-      <motion.div
-        className="flex flex-col gap-10 w-sm py-20 bg-green-700/0 absolute right-0 bottom-0  pl-10  mx-auto    max-xl:relative  max-xl:w-full max-xl:flex-row max-xl:flex-wrap max-xl:py-10 max-xl:px-10 max-xl:gap-6 max-xl:text-sm max-xl:bottom-0 max-xl:bg-transparent max-md:pl-0 max-sm:flex-col max-sm:items-center max-md:justify-center "
-        initial={{ y: 100 }}
-        whileInView={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.35 }}
-      >
-        <Link href="https://github.com/hashalagayendra ">
-          <div className="flex gap-4 items-center hover:text-green-500 transition-colors  justify-start ">
-            <img
-              className="w-8 h-8 max-md:w-6  max-md:h-6 "
-              height="full"
-              width="full"
-              src={github.src}
-              alt="GitHub"
-            />{" "}
-            <h1>github.com/hashalagayendra</h1>
-          </div>
-        </Link>
-        <Link href="https://www.linkedin.com/in/hashala">
-          <div className="flex gap-4 items-center hover:text-green-500 transition-colors">
-            <img
-              className="w-8 h-8 max-md:w-6  max-md:h-6 "
-              height="full"
-              width="full"
-              src={linkedin.src}
-              alt="LinkedIn"
-            />{" "}
-            <h1>linkedin.com/in/hashalagayendra</h1>
-          </div>
-        </Link>
-        <Link href="mailto:hashalagayendra@gmail.com">
-          <div className="flex gap-4 items-center ">
-            <Mail
-              className="w-8 h-8 max-md:w-6  max-md:h-6 "
-              height="full"
-              width="full"
-            />
-            <h1 className="hover:text-green-500 transition-colors">
-              hashalagayendra@gmail.com
-            </h1>
-          </div>
-        </Link>
-        <Link href="tel:+94781958069">
-          <div className="flex gap-4 items-center ">
-            <Phone
-              className="w-8 h-8 max-md:w-6  max-md:h-6 "
-              height="full"
-              width="full"
-            />
-            <h1 className="hover:text-green-500 transition-colors">
-              +94 78 195 8069
-            </h1>
-          </div>
-        </Link>
-      </motion.div>
+        {/* Right Column: Form (Preserving Style) */}
+        <div className="w-full pt-4">
+          <form className="space-y-10" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="w-full group">
+                <label
+                  className={`text-lg text-white/60 group-focus-within:text-green-400 transition-colors ${adamina.className}`}
+                >
+                  Your Name
+                </label>
+                <input
+                  className={`text-white/90 border-b border-white/25 focus:border-green-400 focus:outline-none bg-transparent w-full py-3 mt-2 placeholder-white/20 transition-all ${adamina.className}`}
+                  type="text"
+                  placeholder="John Doe"
+                  value={form.name}
+                  onChange={(e) =>
+                    setForm((prev) => ({ ...prev, name: e.target.value }))
+                  }
+                />
+              </div>
+              <div className="w-full group">
+                <label
+                  className={`text-lg text-white/60 group-focus-within:text-green-400 transition-colors ${adamina.className}`}
+                >
+                  Your Email
+                </label>
+                <input
+                  className={`text-white/90 border-b border-white/25 focus:border-green-400 focus:outline-none bg-transparent w-full py-3 mt-2 placeholder-white/20 transition-all ${adamina.className}`}
+                  type="email"
+                  placeholder="john@example.com"
+                  value={form.clientemail}
+                  onChange={(e) =>
+                    setForm((prev) => ({
+                      ...prev,
+                      clientemail: e.target.value,
+                    }))
+                  }
+                />
+              </div>
+            </div>
+
+            <div className="w-full group">
+              <label
+                className={`text-lg text-white/60 group-focus-within:text-green-400 transition-colors ${adamina.className}`}
+              >
+                Message
+              </label>
+              <textarea
+                className={`text-white/90 border-b border-white/25 focus:border-green-400 focus:outline-none bg-transparent w-full py-3 mt-2 placeholder-white/20 transition-all resize-y min-h-[120px] ${adamina.className}`}
+                rows={4}
+                placeholder="Hi, I'm reaching out regarding an internship opportunity..."
+                value={form.message}
+                onChange={(e) =>
+                  setForm((prev) => ({ ...prev, message: e.target.value }))
+                }
+              />
+            </div>
+
+            <div className="w-full flex flex-col items-end gap-2">
+              <button
+                disabled={loading}
+                className={`group flex items-center gap-3 bg-green-500/80 hover:bg-green-500 px-10 py-3 border border-green-600 transition-all duration-300 ${adamina.className} disabled:opacity-70 disabled:cursor-not-allowed`}
+              >
+                {loading ? (
+                  <>
+                    <span className="text-lg text-white">Sending...</span>
+                    <Loader2 size={18} className="text-white animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    <span className="text-lg text-white">Send Message</span>
+                    <Send
+                      size={18}
+                      className="text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                    />
+                  </>
+                )}
+              </button>
+              {status && (
+                <p
+                  className={`text-sm ${
+                    status.includes("Sent") ? "text-green-400" : "text-red-400"
+                  } ${adamina.className}`}
+                >
+                  {status}
+                </p>
+              )}
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

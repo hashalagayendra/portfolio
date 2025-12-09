@@ -1,59 +1,62 @@
 "use client";
 import React from "react";
 import { adamina, anton } from "@/app/layout";
-import ScrollReveal from "@/components/ScrollReveal";
-import { motion } from "motion/react";
 
 function Aboutme() {
   return (
-    <div className="relative mt-10  overflow-hidden">
-      <motion.div
-        className="absolute bg-green-500/10 h-full -top-8 w-full  -z-10"
-        initial={{ x: "100%" }}
-        whileInView={{ x: 0 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-        viewport={{ once: true }}
-      ></motion.div>
-      <section className="w-full py-10 relative   xl:px-30  px-10  max-md:px-4 ">
-        <div>
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.35 }}
-            className={`text-6xl text-white/75  ${anton.className}   max-lg:text-5xl max-lg:text-start  max-md:text-4xl`}
-          >
-            About <span className="text-green-500/75">Me</span>
-          </motion.h1>
-        </div>
-        <div className="w-full mt-16 pt-4 pb-9 md:px-12 lg:px-20 mx-auto max-w-7xl ">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.35 }}
-            className="relative"
-          >
-            <span className="absolute -top-10 -left-6 md:-left-10 text-9xl text-green-400 font-serif leading-none select-none max-md:text-7xl  ">
-              “
-            </span>
-            <p
-              className={`text-3xl text-white/75 leading-relaxed tracking-wide w-full max-lg:text-2xl max-md:text-lg ${adamina.className} relative z-10 py-4 `}
+    <section className="w-full xl:px-32 px-6 md:px-12  overflow-hidden">
+      <div className="relative">
+        {/* Large Background Text for Style */}
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-10">
+          {/* Left Column: Headline & Intro */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            <h2
+              className={`text-5xl md:text-6xl text-white/75 ${anton.className} leading-tight`}
             >
-              I’m Hashala, an undergraduate IT student and full-stack developer
-              who loves turning ideas into simple, clean, and functional web
-              applications. I mainly work with Next.js, NestJS, Prisma, and
-              PostgreSQL, and I enjoy building projects that solve real problems
-              and feel great to use. I’m always learning, experimenting, and
-              improving my craft as I grow in the world of web development.
+              I'm <span className="text-green-500/75">Hashala Gayendra</span>
+            </h2>
+            <div className="w-24 h-2 bg-green-500" />
+            <p
+              className={`text-xl md:text-2xl text-white/75 ${adamina.className} leading-relaxed mt-4`}
+            >
+              An undergraduate IT student at the{" "}
+              <span className="text-white border-b-2 border-green-500/30">
+                University of Sri Jayewardenepura
+              </span>{" "}
+              who enjoys working on full-stack web development and practical
+              software solutions.
             </p>
-            <span className="absolute -bottom-16 right-0 md:-right-4 text-9xl text-green-400 font-serif leading-none select-none max-md:text-7xl">
-              ”
-            </span>
-          </motion.div>
+          </div>
+
+          {/* Right Column: Detailed Description */}
+          <div className="lg:col-span-7 flex flex-col gap-8 lg:pt-4">
+            <p
+              className={`text-lg md:text-xl text-white/60 ${adamina.className} leading-relaxed`}
+            >
+              I’m currently learning and building projects using technologies
+              like{" "}
+              <span className="text-green-400/90">
+                JavaScript, TypeScript, React, Next.js, NestJS, PostgreSQL,
+                Prisma, Docker, and Azure
+              </span>
+              . Through my projects, I’ve gained experience creating AI-assisted
+              systems, document processing tools, and web applications that
+              focus on real user needs.
+            </p>
+            <p
+              className={`text-lg md:text-xl text-white/60 ${adamina.className} leading-relaxed`}
+            >
+              I’m interested in understanding how modern web technologies, cloud
+              platforms, and AI can work together to build reliable and
+              easy-to-use applications. I’m always trying to improve my skills
+              and learn better ways to build systems that are useful in
+              real-world situations.
+            </p>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
 

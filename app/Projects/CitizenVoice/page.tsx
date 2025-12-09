@@ -2,6 +2,8 @@
 import React from "react";
 import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import Qwizzy_AI_Hero from "@/asset/projects/Qwizzy_AI/homepage.png";
 import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
 import banner from "@/asset/projects/Citizen_Voice/banner.png";
@@ -190,13 +192,21 @@ function page() {
   }
 
   return (
-    <section className="xl:px-30 px-10 max-md:px-4">
+    <section className="xl:px-30 px-10 max-md:px-4 relative">
+      <Link
+        href="/"
+        className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-[100] flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group p-2 "
+      >
+        <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+        <span className={`${adamina.className} text-lg`}>Back</span>
+      </Link>
+
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="flex gap-8 max-lg:flex-col w-full h-dvh justify-center items-center "
+        className="flex gap-8 max-lg:flex-col w-full h-dvh justify-center items-center pt-24"
       >
         <div className="w-full gap-10 flex flex-col ">
           <h1
@@ -225,19 +235,21 @@ function page() {
           <div className="flex gap-7 flex-wrap ">
             {techStack.map((each, index) => (
               <div
-                className="flex flex-col gap-3 items-center justify-between  "
                 key={index}
+                className="flex flex-col items-center gap-2 group/item"
               >
-                <img
-                  className="w-10 h-10 max-md:w-8 max-md:h-8 "
-                  src={each.icon.src}
-                  alt={each.name}
-                  width={"full"}
-                  height={"full"}
-                />
-                <h1 className="text-white/75 text-base text-nowrap  max-md:text-sm">
+                <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center transition-transform duration-300 group-hover/item:-translate-y-1">
+                  <img
+                    src={each.icon.src}
+                    alt={each.name}
+                    className="w-full h-full object-contain opacity-80 group-hover/item:opacity-100 transition-all duration-300"
+                  />
+                </div>
+                <span
+                  className={`text-white/40 text-xs text-center group-hover/item:text-green-400 transition-colors ${adamina.className}`}
+                >
                   {each.name}
-                </h1>
+                </span>
               </div>
             ))}
           </div>
