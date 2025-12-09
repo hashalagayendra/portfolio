@@ -17,10 +17,16 @@ function Herosection() {
         transition={{ duration: 0.45, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <Link href="https://github.com/hashalagayendra">
+        <Link
+          href="https://github.com/hashalagayendra"
+          className="cursor-pointer"
+        >
           <img height={40} width={40} src={github.src} alt="GitHub" />
         </Link>
-        <Link href="https://www.linkedin.com/in/hashala-gayendra/">
+        <Link
+          href="https://www.linkedin.com/in/hashala-gayendra/"
+          className="cursor-pointer"
+        >
           <img height={40} width={40} src={linkedin.src} alt="LinkedIn" />
         </Link>
       </motion.div>

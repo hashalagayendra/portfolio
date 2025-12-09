@@ -4,14 +4,21 @@ import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import Qwizzy_AI_Hero from "@/asset/projects/Qwizzy_AI/homepage.png";
+import ThinkBaseHero from "@/asset/projects/ThinkBase/homepage.png";
 import banner from "@/asset/projects/Qwizzy_AI/banner.png";
 
 import postgresssql from "@/asset/icons/postgresql.svg";
 import prisma from "@/asset/icons/prisma.svg";
 import tailwindcss from "@/asset/icons/tailwindcss.png";
 import nextjs from "@/asset/icons/nextjs.png";
+import nestjs from "@/asset/icons/nestjs.svg";
 import nextauthjs from "@/asset/icons/nextauthjs.png";
+import langchain from "@/asset/icons/langchain.webp";
+import typescript from "@/asset/icons/typescript.svg";
+import docker from "@/asset/icons/docker.svg";
+import githubactions from "@/asset/icons/githubactions.png";
+import azure from "@/asset/icons/azure.svg";
+
 import { motion } from "motion/react";
 function page() {
   const v1 = "/videos/QwizzyAI/v1.webm";
@@ -25,10 +32,15 @@ function page() {
   const v9 = "/videos/QwizzyAI/v9.webm";
   const techStack: { name: string; icon: any }[] = [
     { name: "Next.js", icon: nextjs },
-    { name: "NextAuth.js", icon: nextauthjs },
-    { name: "Tailwind CSS", icon: tailwindcss },
+    { name: "NestJS", icon: nestjs },
+    { name: "LangChain", icon: langchain },
+    { name: "TypeScript", icon: typescript },
     { name: "PostgreSQL", icon: postgresssql },
     { name: "Prisma", icon: prisma },
+    { name: "Tailwind CSS", icon: tailwindcss },
+    { name: "Docker", icon: docker },
+    { name: "GitHub Actions", icon: githubactions },
+    { name: "Azure", icon: azure },
   ];
 
   const features = [
@@ -187,7 +199,7 @@ function page() {
     <section className="xl:px-30 px-10 max-md:px-4 relative">
       <Link
         href="/"
-        className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-50 flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group cursor-pointer"
+        className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-50 flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group"
       >
         <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
         <span className={`${adamina.className} text-lg`}>Back</span>
@@ -200,25 +212,27 @@ function page() {
         viewport={{ once: true }}
         className="flex gap-8 max-lg:flex-col w-full h-dvh justify-center items-center "
       >
-        <div className="w-full gap-10 flex flex-col ">
+        <div className="w-full gap-5 flex flex-col ">
           <h1
             className={`text-8xl max-xl:text-7xl text-green-500/75 ${anton.className} max-lg:text-start`}
           >
-            Qwizzy AI
+            Think-Base
           </h1>
-          <div className="flex flex-col gap-10 max-md:gap-3 ">
+          <div className="flex flex-col gap-5 max-md:gap-3 ">
             <p
               className={`text-white/75 text-2xl ${adamina.className} max-lg:text-start  max-md:text-lg`}
             >
-              Smart Paper Creation, Sharing, Answering, and Result System
+              Developer Tools for Building Website Chatbots
             </p>
             <p
               className={`text-white/50 text-xl ${adamina.className} max-xl:text-xl max-lg:text-start leading-8 max-md:text-base`}
             >
-              Qwizzy AI is a platform where users can create papers, add
-              questions, share them with others, answer them within a time
-              limit, and view their results. It makes the whole process simple,
-              fast, and user-friendly for both creators and students.
+              ThinkBase lets developers upload documents, customize chunking,
+              generate embeddings, and build AI-powered chat features using
+              project-specific API keys. It supports custom prompts, saves chat
+              history by client ID, and provides an SDK for creating fully
+              customizable chat interfaces—making AI chatbot development simple
+              and fast.
             </p>
           </div>
 
@@ -249,8 +263,8 @@ function page() {
             <Image
               width={800}
               height={600}
-              src={Qwizzy_AI_Hero.src}
-              alt="Qwizzy AI Homepage"
+              src={ThinkBaseHero.src}
+              alt="ThinkBase Homepage"
               className="w-full h-auto max-lg:hidden "
               priority
             />

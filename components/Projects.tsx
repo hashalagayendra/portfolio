@@ -4,12 +4,20 @@ import { adamina, anton } from "@/app/layout";
 import Image from "next/image";
 import Qwizzy_AI from "@/asset/projects/Qwizzy_AI/homepage.png";
 import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
+import Think_Base from "@/asset/projects/ThinkBase/homepage.png";
 import { useRouter } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 
 function Projects() {
   const router = useRouter();
   const projectDetails = [
+    {
+      image: Think_Base,
+      title: "Think-Base.Dev ",
+      description:
+        "ThinkBase is an intelligent AI-powered chatbot and document-processing platform built for developers to create customizable, scalable, and efficient chat systems. It supports everything from document upload and adjustable chunking to vector embedding generation and project-based API key management. With its built-in SDK, prompt customization tools, and memory-enabled chat features, ThinkBase provides a smooth, developer-friendly workflow for building advanced AI chat experiences with ease.",
+      navigation: "/Projects/ThinkBase",
+    },
     {
       image: Qwizzy_AI,
       title: "Qwizzy AI",
@@ -57,7 +65,7 @@ function Projects() {
 
                 <button
                   onClick={() => router.push(project.navigation)}
-                  className={`flex items-center gap-3 text-lg text-white hover:text-green-400 transition-colors w-fit group/btn ${adamina.className}`}
+                  className={`flex items-center gap-3 text-lg text-white hover:text-green-400 transition-colors w-fit group/btn cursor-pointer ${adamina.className}`}
                 >
                   <span className="border-b border-transparent group-hover/btn:border-green-400 transition-all">
                     See more Details

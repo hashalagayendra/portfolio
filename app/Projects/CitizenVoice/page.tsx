@@ -195,7 +195,7 @@ function page() {
     <section className="xl:px-30 px-10 max-md:px-4 relative">
       <Link
         href="/"
-        className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-[100] flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group p-2 "
+        className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-[100] flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group p-2 cursor-pointer"
       >
         <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
         <span className={`${adamina.className} text-lg`}>Back</span>

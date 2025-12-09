@@ -61,7 +61,7 @@ function Contact() {
           <div className="flex flex-col gap-6">
             <Link
               href="mailto:hashalagayendra@gmail.com"
-              className="group w-fit"
+              className="group w-fit cursor-pointer"
             >
               <div className="flex gap-5 items-center">
                 <div className="group-hover:text-green-400 transition-colors">
@@ -80,7 +80,10 @@ function Contact() {
               </div>
             </Link>
 
-            <Link href="tel:+94781958069" className="group w-fit">
+            <Link
+              href="tel:+94781958069"
+              className="group w-fit cursor-pointer"
+            >
               <div className="flex gap-5 items-center">
                 <div className="group-hover:text-green-400 transition-colors">
                   <Phone className="w-6 h-6 text-white/80 group-hover:text-green-400 transition-colors" />
@@ -102,7 +105,7 @@ function Contact() {
               <Link
                 href="https://github.com/hashalagayendra"
                 target="_blank"
-                className="group"
+                className="group cursor-pointer"
               >
                 <div className="transition-colors">
                   <img
@@ -115,7 +118,7 @@ function Contact() {
               <Link
                 href="https://www.linkedin.com/in/hashala"
                 target="_blank"
-                className="group"
+                className="group cursor-pointer"
               >
                 <div className="transition-colors">
                   <img
@@ -190,7 +193,7 @@ function Contact() {
             <div className="w-full flex flex-col items-end gap-2">
               <button
                 disabled={loading}
-                className={`group flex items-center gap-3 bg-green-500/80 hover:bg-green-500 px-10 py-3 border border-green-600 transition-all duration-300 ${adamina.className} disabled:opacity-70 disabled:cursor-not-allowed`}
+                className={`group flex items-center gap-3 bg-green-500/80 hover:bg-green-500 px-10 py-3 border border-green-600 transition-all duration-300 cursor-pointer ${adamina.className} disabled:opacity-70 disabled:cursor-not-allowed`}
               >
                 {loading ? (
                   <>
