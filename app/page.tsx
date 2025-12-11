@@ -1,7 +1,7 @@
 "use client";
 import Particles from "@/components/Particles";
 import Image from "next/image";
-import { anton, adamina } from "./layout";
+import { anton, adamina } from "@/app/fonts";
 import Stack from "@/components/Stack";
 import Projects from "@/components/Projects";
 import { motion } from "motion/react";

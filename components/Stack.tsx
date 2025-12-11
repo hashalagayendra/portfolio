@@ -23,7 +23,7 @@ import redux from "@/asset/icons/redux.png";
 import tailwindcss from "@/asset/icons/tailwindcss.png";
 import typescript from "@/asset/icons/typescript.svg";
 
-import { adamina, anton } from "@/app/layout";
+import { adamina, anton } from "@/app/fonts";
 
 function Stack() {
   const frontend: { name: string; icon: any }[] = [

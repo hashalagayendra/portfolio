@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { adamina, anton } from "@/app/layout";
+import { adamina, anton } from "@/app/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import ThinkBaseHero from "@/asset/projects/ThinkBase/homepage.png";
-import banner from "@/asset/projects/Qwizzy_AI/banner.png";
+import banner from "@/asset/projects/ThinkBase/banner.png";
 
 import postgresssql from "@/asset/icons/postgresql.svg";
 import prisma from "@/asset/icons/prisma.svg";
@@ -21,15 +21,16 @@ import azure from "@/asset/icons/azure.svg";
 
 import { motion } from "motion/react";
 function page() {
-  const v1 = "/videos/QwizzyAI/v1.webm";
-  const v2 = "/videos/QwizzyAI/v2.webm";
-  const v3 = "/videos/QwizzyAI/v3.webm";
-  const v4 = "/videos/QwizzyAI/v4.webm";
-  const v5 = "/videos/QwizzyAI/v5.webm";
-  const v6 = "/videos/QwizzyAI/v6.webm";
-  const v7 = "/videos/QwizzyAI/v7.webm";
-  const v8 = "/videos/QwizzyAI/v8.webm";
-  const v9 = "/videos/QwizzyAI/v9.webm";
+  const v1 = "/videos/ThinkBase/v1.webm";
+  const v2 = "/videos/ThinkBase/v2.webm";
+  const v3 = "/videos/ThinkBase/v3.webm";
+  const v4 = "/videos/ThinkBase/v4.webm";
+  const v5 = "/videos/ThinkBase/v5.webm";
+  const v6 = "/videos/ThinkBase/v6.webm";
+  const v7 = "/videos/ThinkBase/v7.webm";
+  const v8 = "/videos/ThinkBase/v8.webm";
+  const v9 = "/videos/ThinkBase/v9.webm";
+  const v10 = "/videos/ThinkBase/v10.webm";
   const techStack: { name: string; icon: any }[] = [
     { name: "Next.js", icon: nextjs },
     { name: "NestJS", icon: nestjs },
@@ -45,93 +46,114 @@ function page() {
 
   const features = [
     {
-      title:
-        "User Authentication with Google OAuth & Credentials (NextAuth.js)",
+      title: "User Login",
+      id: "01",
       description: "",
       subTitles: [
-        "Google OAuth Integration lets users log in instantly using their Google account",
-        "Credential-Based Login supports traditional login with email and password",
-        "Secure Password Hashing hashes passwords using bcrypt for protection.",
+        "Users can log in using Email & Password, GitHub, or Google OAuth.",
+        "Access tokens are stored in memory for secure, short-lived API access..",
+        "Refresh tokens are stored in HTTP-only cookies to maintain session security.",
+        "The system creates a unique user session to track activities and project access.",
       ],
       url: v1,
     },
     {
-      title: "User Dashboard Features",
-      description: " ",
+      title: "Create Project",
+      id: "02",
+      description: "",
       subTitles: [
-        "Created Papers View shows all papers the user has created",
-        "Answered Papers View displays papers the user has already completed",
-        "Assigned Papers View lists papers assigned by others for the user to answer",
+        "Users can create a new project by providing a project name and description.",
+        "Each project is isolated, allowing separate document processing and API management.",
+        "Projects serve as containers for all uploaded documents, prompts, and API keys.",
       ],
       url: v2,
     },
     {
-      title: "Paper Creation System",
+      title: "Upload Documents",
+      id: "03",
       description: "",
       subTitles: [
-        "Add Paper Title sets a clear and meaningful name for the paper",
-        "Add Paper Description provides important details or instructions",
-        "Set Time Limit defines the duration for completing the paper",
-        "Assign Paper to Users allows selection of one or multiple registered users",
+        "Users can upload multiple documents to a project.",
+        "Supports PDF and text files.",
+        "Uploaded documents are processed and stored securely for further embedding and AI usage.",
       ],
       url: v3,
     },
     {
-      title: "Question Creation",
+      title: "Adjust Chunk Size and Overlap",
+      id: "04",
       description: "",
       subTitles: [
-        "Manual Question Entry allows users to type questions and add multiple answer options",
-        "AI-Powered Question Generation creates questions and answers automatically from a given topic or description",
+        "Users can customize how documents are split into chunks for better processing.",
+        "Adjustable chunk sizes and overlap improve embedding accuracy and AI understanding.",
+        "Each document’s settings can be configured independently.",
       ],
       url: v4,
     },
     {
-      title:
-        "Document-Based Question Generation with Custom Question and Answer Count",
+      title: "Add System Prompt",
+      id: "05",
       description: "",
       subTitles: [
-        "PDF Upload Question Generation allows users to upload a document and generate questions from its content",
-        "Set Question Count lets users choose how many questions should be created",
-        "Set Answer Count allows defining how many answer options each question should have",
+        "Users can define a system prompt to guide the AI chatbot’s behavior.",
+        "Prompts can be customized per project ",
+        "Supports context-aware AI responses.",
       ],
       url: v5,
     },
     {
-      title: "Paper Answering System",
+      title: "Generate API Keys for the Project",
+      id: "06",
       description: "",
       subTitles: [
-        "Timed Paper Attempt allows users to answer created papers within the given time",
-        "Timed Paper Attempt allows users to answer assigned papers within the given time",
-        "Question Navigation lets users skip and move between questions using the sidebar",
+        "Each project can have one or more API keys for secure access.",
+        "API keys allow developers to integrate ThinkBase chat features into external applications.",
+        "Keys are project-specific, ensuring proper access control.",
       ],
       url: v6,
     },
     {
-      title: "Paper Marking and Review",
+      title: "Customize and Test in the Built-in Playground",
+      id: "07",
       description: "",
       subTitles: [
-        "View Marks allows users to see their score after submitting a paper",
-        "Answer Review lets users check which answers were correct and which were wrong",
+        "Users can interactively test their AI chatbot responses within the platform.",
+
+        "Provides a safe environment before deploying the chatbot externally.",
       ],
       url: v7,
     },
     {
-      title: "Paper Resetting",
+      title: "Install ThinkBase Package from NPM",
+      id: "08",
       description: "",
       subTitles: [
-        "Reset Own Paper allows users to reset and reattempt papers they have created",
-        "Assigned Paper Restriction prevents users from resetting papers assigned by others",
+        "Developers can install the ThinkBase SDK via NPM: npm install thinkbase",
+        "SDK provides ready-to-use chat components for integration into web applications.",
       ],
       url: v8,
     },
     {
-      title: "PDF Download",
+      title: "Use Chat Components with API Key",
+      id: "09",
       description: "",
       subTitles: [
-        "Download Paper allows users to save any paper as a PDF file",
-        "Include Questions and Answers lets the PDF contain all questions and their options",
+        "Developers can integrate pre-built chat components into their website or application.",
+        "Components connect directly to the ThinkBase backend using the project-specific API key.",
+        "Allows fully functional AI chat with minimal setup.",
       ],
       url: v9,
+    },
+    {
+      title: "Use SDK with API Key",
+      id: "10",
+      description: "",
+      subTitles: [
+        "The SDK allows developers to customize chat UI and behavior while connecting securely via API key.",
+        "Supports advanced features like storing user chat history, handling multiple projects, and custom prompts.",
+        "Enables integration into any web or mobile application with full developer control.",
+      ],
+      url: v10,
     },
   ];
 
@@ -155,7 +177,7 @@ function page() {
             <h1
               className={`text-6xl text-green-500/75 ${anton.className}  max-md:text-5xl`}
             >
-              0{number}
+              {number}
             </h1>
             <h1
               className={`text-3xl text-white/75  ${adamina.className}  max-md:text-xl`}
@@ -259,7 +281,7 @@ function page() {
           </div>
         </div>
         <div className="w-full flex justify-start lg:justify-end">
-          <div className="w-full max-w-2xl">
+          <div className="w-full flex flex-col max-w-2xl">
             <Image
               width={800}
               height={600}
@@ -268,6 +290,18 @@ function page() {
               className="w-full h-auto max-lg:hidden "
               priority
             />
+            <div className="mt-4 flex w-full justify-center max-lg:hidden">
+              <Link
+                href="https://think-base.dev/"
+                target="_blank"
+                className={`flex items-center gap-2 text-green-500 hover:text-green-400 transition-colors text-xl ${adamina.className} group`}
+              >
+                <span className="border-b border-transparent group-hover:border-green-400 transition-all">
+                  Visit Application
+                </span>
+                <ExternalLink className="w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -289,7 +323,7 @@ function page() {
             description={each.description}
             url={each.url}
             subTitles={each.subTitles}
-            number={index + 1}
+            number={each.id as unknown as number}
           />
         ))}
       </motion.div>

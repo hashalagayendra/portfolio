@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { adamina, anton } from "@/app/layout";
+import { adamina, anton } from "@/app/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import Qwizzy_AI_Hero from "@/asset/projects/Qwizzy_AI/homepage.png";
 import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
 import banner from "@/asset/projects/Citizen_Voice/banner.png";
@@ -255,7 +255,7 @@ function page() {
           </div>
         </div>
         <div className="w-full flex justify-start lg:justify-end">
-          <div className="w-full max-w-2xl">
+          <div className="w-full flex flex-col max-w-2xl">
             <Image
               width={800}
               height={1000}
@@ -264,6 +264,18 @@ function page() {
               className="w-full h-auto max-lg:hidden "
               priority
             />
+            <div className="mt-4 flex w-full justify-center max-lg:hidden">
+              <Link
+                href="https://citizen-voice-five.vercel.app/"
+                target="_blank"
+                className={`flex items-center gap-2 text-green-500 hover:text-green-400 transition-colors text-xl ${adamina.className} group`}
+              >
+                <span className="border-b border-transparent group-hover:border-green-400 transition-all">
+                  Visit Application
+                </span>
+                <ExternalLink className="w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </div>
       </motion.div>

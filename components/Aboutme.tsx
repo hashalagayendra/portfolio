@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { adamina, anton } from "@/app/layout";
+import { adamina, anton } from "@/app/fonts";
 
 function Aboutme() {
   return (

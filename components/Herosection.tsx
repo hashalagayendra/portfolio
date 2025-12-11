@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { anton, adamina } from "@/app/layout";
+import { anton, adamina } from "@/app/fonts";
 import github from "@/asset/icons/github.svg";
 import linkedin from "@/asset/icons/linkedin.svg";
 import ScrollReveal from "@/components/ScrollReveal";

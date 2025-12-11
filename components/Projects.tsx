@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { adamina, anton } from "@/app/layout";
+import { adamina, anton } from "@/app/fonts";
 import Image from "next/image";
 import Qwizzy_AI from "@/asset/projects/Qwizzy_AI/homepage.png";
 import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
@@ -65,7 +65,7 @@ function Projects() {
 
                 <button
                   onClick={() => router.push(project.navigation)}
-                  className={`flex items-center gap-3 text-lg text-white hover:text-green-400 transition-colors w-fit group/btn cursor-pointer ${adamina.className}`}
+                  className={`flex items-center gap-3 text-lg text-green-500 hover:text-green-400 transition-colors w-fit group/btn cursor-pointer ${adamina.className}`}
                 >
                   <span className="border-b border-transparent group-hover/btn:border-green-400 transition-all">
                     See more Details

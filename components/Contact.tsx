@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { adamina, anton } from "@/app/layout";
+import { adamina, anton } from "@/app/fonts";
 import Link from "next/link";
 import github from "@/asset/icons/github.svg";
 import linkedin from "@/asset/icons/linkedin.svg";
