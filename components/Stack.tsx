@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import aws from "@/asset/icons/aws.svg";
 import azure from "@/asset/icons/azure.svg";

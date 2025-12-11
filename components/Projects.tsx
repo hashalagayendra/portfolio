@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { adamina, anton } from "@/app/fonts";
 import Image from "next/image";
 import Qwizzy_AI from "@/asset/projects/Qwizzy_AI/homepage.png";
@@ -7,9 +7,85 @@ import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
 import Think_Base from "@/asset/projects/ThinkBase/homepage.png";
 import { useRouter } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const ProjectItem = ({
+  project,
+  index,
+}: {
+  project: {
+    image: any;
+    title: string;
+    description: string;
+    navigation: string;
+  };
+  index: number;
+}) => {
+  const router = useRouter();
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
+
+  return (
+    <motion.div ref={ref} style={{ opacity }} className="group mb-32 last:mb-0">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Text Content */}
+        <div
+          className={`lg:col-span-5 flex flex-col gap-8 order-2 ${
+            index % 2 === 0 ? "lg:order-1" : "lg:order-2"
+          }`}
+        >
+          <div>
+            <h2
+              className={`text-4xl md:text-6xl text-green-500/75 mb-6 ${anton.className}`}
+            >
+              {project.title}
+            </h2>
+            <p
+              className={`text-lg text-white/60 leading-relaxed ${adamina.className}`}
+            >
+              {project.description}
+            </p>
+          </div>
+
+          <button
+            onClick={() => router.push(project.navigation)}
+            className={`flex items-center gap-3 text-lg text-green-500 hover:text-green-400 transition-colors w-fit group/btn cursor-pointer ${adamina.className}`}
+          >
+            <span className="border-b border-transparent group-hover/btn:border-green-400 transition-all">
+              See more Details
+            </span>
+            <ArrowUpRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+          </button>
+        </div>
+
+        {/* Image */}
+        <div
+          className={`lg:col-span-7 order-1 cursor-pointer ${
+            index % 2 === 0 ? "lg:order-2" : "lg:order-1"
+          }`}
+          onClick={() => router.push(project.navigation)}
+        >
+          <div className="relative w-full aspect-video bg-white/5 overflow-hidden rounded-lg transition-all duration-500">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 function Projects() {
-  const router = useRouter();
   const projectDetails = [
     {
       image: Think_Base,
@@ -35,65 +111,22 @@ function Projects() {
   ];
 
   return (
-    <section className="w-full  xl:px-32 px-6 md:px-12">
+    <section className="w-full xl:px-32 px-6 md:px-12">
       <div className="mb-20">
-        <h1
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className={`text-5xl md:text-6xl text-white/75 mb-4 ${anton.className}`}
         >
           SELECTED <span className="text-green-500/75">PROJECTS</span>
-        </h1>
+        </motion.h1>
       </div>
 
-      <div className="flex flex-col gap-20">
+      <div className="flex flex-col">
         {projectDetails.map((project, index) => (
-          <div key={index} className="group">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Text Content */}
-              <div className="lg:col-span-5 flex flex-col gap-8 order-2 lg:order-1">
-                <div>
-                  <h2
-                    className={`text-4xl md:text-6xl text-green-500/75 mb-6 ${anton.className}`}
-                  >
-                    {project.title}
-                  </h2>
-                  <p
-                    className={`text-lg text-white/60 leading-relaxed ${adamina.className}`}
-                  >
-                    {project.description}
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => router.push(project.navigation)}
-                  className={`flex items-center gap-3 text-lg text-green-500 hover:text-green-400 transition-colors w-fit group/btn cursor-pointer ${adamina.className}`}
-                >
-                  <span className="border-b border-transparent group-hover/btn:border-green-400 transition-all">
-                    See more Details
-                  </span>
-                  <ArrowUpRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-                </button>
-              </div>
-
-              {/* Image */}
-              <div
-                className="lg:col-span-7 order-1 lg:order-2 cursor-pointer"
-                onClick={() => router.push(project.navigation)}
-              >
-                <div className="relative w-full aspect-video bg-white/5 overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-              </div>
-            </div>
-            {/* Separator Line - Only show if not the last item */}
-            {index !== projectDetails.length - 1 && (
-              <div className="w-full h-px bg-white/10 mt-20" />
-            )}
-          </div>
+          <ProjectItem key={index} project={project} index={index} />
         ))}
       </div>
     </section>

@@ -7,6 +7,7 @@ import linkedin from "@/asset/icons/linkedin.svg";
 import { Mail, Phone, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 function Contact() {
   const [form, setForm] = useState({ name: "", clientemail: "", message: "" });
@@ -33,15 +34,21 @@ function Contact() {
   };
 
   return (
-    <div
-      className="w-full  relative xl:px-32 px-6 md:px-12 overflow-hidden pb-20"
+    <section
+      className="w-full relative xl:px-32 px-6 md:px-12 overflow-hidden pb-20"
       id="contact"
     >
       {/* Background decoration */}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         {/* Left Column: Text Content & Contact Info */}
-        <div className="flex flex-col gap-12">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex flex-col gap-12"
+        >
           <div>
             <h1
               className={`text-5xl md:text-6xl text-white/75 mb-6 ${anton.className}`}
@@ -130,10 +137,16 @@ function Contact() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column: Form (Preserving Style) */}
-        <div className="w-full pt-4">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="w-full pt-4"
+        >
           <form className="space-y-10" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="w-full group">
@@ -221,9 +234,9 @@ function Contact() {
               )}
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
 

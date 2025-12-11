@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Hashala Gayendra",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ position: "relative" }}>{children}</body>
+      <body style={{ position: "relative" }}>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

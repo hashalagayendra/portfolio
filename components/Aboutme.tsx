@@ -1,11 +1,18 @@
 "use client";
 import React from "react";
 import { adamina, anton } from "@/app/fonts";
+import { motion } from "framer-motion";
 
 function Aboutme() {
   return (
     <section className="w-full xl:px-32 px-6 md:px-12  overflow-hidden">
-      <div className="relative">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="relative"
+      >
         {/* Large Background Text for Style */}
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-10">
@@ -55,7 +62,7 @@ function Aboutme() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
