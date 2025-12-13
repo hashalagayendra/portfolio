@@ -5,6 +5,7 @@ import Image from "next/image";
 import Qwizzy_AI from "@/asset/projects/Qwizzy_AI/homepage.png";
 import Citizen_Voice from "@/asset/projects/Citizen_Voice/homepage.png";
 import Think_Base from "@/asset/projects/ThinkBase/homepage.png";
+import Think_Base_App from "@/asset/projects/ThinkBaseApp/homepage.png";
 import { useRouter } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -18,6 +19,7 @@ const ProjectItem = ({
     title: string;
     description: string;
     navigation: string;
+    isPortrait?: boolean;
   };
   index: number;
 }) => {
@@ -35,9 +37,11 @@ const ProjectItem = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Text Content */}
         <div
-          className={`lg:col-span-5 flex flex-col gap-8 order-2 ${
-            index % 2 === 0 ? "lg:order-1" : "lg:order-2"
-          }`}
+          className={`lg:col-span-5 flex flex-col gap-8 order-2 
+            ${index % 2 === 0 ? "lg:order-1" : "lg:order-2"}
+          
+          
+          `}
         >
           <div>
             <h2
@@ -70,14 +74,26 @@ const ProjectItem = ({
           }`}
           onClick={() => router.push(project.navigation)}
         >
-          <div className="relative w-full aspect-video bg-white/5 overflow-hidden rounded-lg transition-all duration-500">
+          <div
+            className={`relative w-full border border-green-500/50 ${
+              project.isPortrait
+                ? "aspect-[8/16] max-w-xs mx-auto rounded-4xl"
+                : "aspect-video overflow-hidden rounded-lg"
+            } bg-transparent transition-all duration-500`}
+          >
             <Image
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              className={` object-top transition-transform duration-700 group-hover:scale-102 ${
+                project.isPortrait ? "rounded-4xl " : "object-cover"
+              }`}
             />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+            <div
+              className={`absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 ${
+                project.isPortrait ? "rounded-4xl " : ""
+              }`}
+            />
           </div>
         </div>
       </div>
@@ -93,6 +109,14 @@ function Projects() {
       description:
         "ThinkBase is an intelligent AI-powered chatbot and document-processing platform built for developers to create customizable, scalable, and efficient chat systems. It supports everything from document upload and adjustable chunking to vector embedding generation and project-based API key management. With its built-in SDK, prompt customization tools, and memory-enabled chat features, ThinkBase provides a smooth, developer-friendly workflow for building advanced AI chat experiences with ease.",
       navigation: "/Projects/ThinkBase",
+    },
+    {
+      image: Think_Base_App,
+      title: "ThinkBase Admin Mobile App",
+      description:
+        "The ThinkBase Admin Mobile App is a streamlined monitoring tool designed for administrators to oversee the entire ThinkBase ecosystem with ease. It provides real-time visibility into user activity, project performance, and system usage. The app allows admins to monitor users, review project details, track usage trends, and ensure smooth platform operations from anywhere. Built with a clean and intuitive mobile interface, it delivers fast, reliable, and on-the-go insights that complement the ThinkBase platform’s overall management experience.",
+      navigation: "/Projects/ThinkBaseApp",
+      isPortrait: true,
     },
     {
       image: Qwizzy_AI,
