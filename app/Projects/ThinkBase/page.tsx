@@ -211,7 +211,7 @@ function page() {
               poster={banner.src}
               src={url}
               controls
-              className="w-full h-auto block"
+              className="aspect-video block object-center   w-full  group-hover:scale-102 transition-transform duration-500 "
             ></video>
           </div>
         </div>

@@ -170,14 +170,12 @@ function page() {
             height={400}
           /> */}
 
-          <div className="relative rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl shadow-black/50 group hover:border-green-500/30 transition-all duration-500 w-full max-w-[700px]">
+          <div className="relative rounded-xl overflow-hidden border border-white/10  shadow-2xl shadow-black/50 group hover:border-green-500/30 transition-all duration-500 w-full max-w-[700px]">
             <video
-              width={700}
-              height={700}
               poster={banner.src}
               src={url}
               controls
-              className="w-full h-auto block"
+              className="aspect-video block object-center   w-full  group-hover:scale-102 transition-transform duration-500 "
             ></video>
           </div>
         </div>
