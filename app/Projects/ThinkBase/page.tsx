@@ -167,12 +167,16 @@ function page() {
     title: string;
     description: string;
     subTitles: string[];
-    url: string;
+    url: string | null;
     number: number;
   }) {
     return (
       <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center">
-        <div className="flex-1 flex flex-col gap-5 max-w-3xl w-full">
+        <div
+          className={`flex-1 flex flex-col gap-5 ${
+            !url ? "w-full" : "max-w-3xl"
+          } w-full`}
+        >
           <div className="flex  gap-5  items-center">
             <h1
               className={`text-6xl text-green-500/75 ${anton.className}  max-md:text-5xl`}
@@ -196,31 +200,33 @@ function page() {
             </ul>
           </div>
         </div>
-        <div className="flex-1 justify-start flex max-lg:justify-center w-full max-lg:hidden">
-          {/* <Image
+        {url && (
+          <div className="flex-1 justify-start flex max-lg:justify-center w-full max-lg:hidden">
+            {/* <Image
             src={url}
             alt={`Qwizzy AI Feature - ${title}`}
             width={600}
             height={400}
           /> */}
 
-          <div className="relative rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl shadow-black/50 group hover:border-green-500/30 transition-all duration-500 w-full max-w-[700px]">
-            <video
-              width={700}
-              height={700}
-              poster={banner.src}
-              src={url}
-              controls
-              className="aspect-video block object-center   w-full  group-hover:scale-102 transition-transform duration-500 "
-            ></video>
+            <div className="relative rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl shadow-black/50 group hover:border-green-500/30 transition-all duration-500 w-full max-w-[700px]">
+              <video
+                width={700}
+                height={700}
+                poster={banner.src}
+                src={url}
+                controls
+                className="aspect-video block object-center   w-full  group-hover:scale-102 transition-transform duration-500 "
+              ></video>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
 
   return (
-    <section className="xl:px-30 px-10 max-md:px-4 relative">
+    <section className="xl:px-30 px-10 max-md:px-4 relative pb-14">
       <Link
         href="/"
         className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-50 flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group"
@@ -328,6 +334,20 @@ function page() {
             number={each.id as unknown as number}
           />
         ))}
+
+        <FeatureCard
+          key={100}
+          title="Chat Memory & User Identification"
+          description={""}
+          url={null}
+          subTitles={[
+            "When a user sends their first message, ThinkBase creates a unique client ID and stores it in the browser as a cookie. This client ID is used to recognize the same user in future messages.",
+            "All chat messages are saved in the database and linked to this client ID. When a new message is sent, ThinkBase automatically loads the previous chat history and uses it to generate a context-aware response.",
+            "For developers using the ThinkBase SDK, no memory handling is required. The SDK automatically manages client identification, chat history, and context, allowing developers to focus only on building the chat UI.",
+            "Users can also see their previous chat messages on the same browser, creating a smooth and continuous chat experience.",
+          ]}
+          number={11}
+        />
       </motion.div>
     </section>
   );

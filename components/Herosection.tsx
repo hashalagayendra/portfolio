@@ -54,14 +54,16 @@ function Herosection() {
           </p>
         </motion.div>
         <motion.a
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           href="/cv/R.A.H.G Ranasingha_CV.pdf"
           download="R.A.H.G Ranasingha_CV.pdf"
-          className={`bg-green-500/65 hover:-translate-y-1 hover:scale-102 hover:bg-green-500/75 transition-all  duration-500 ease-in-out w-fit py-4 px-8 max-lg:py-2 max-lg:px-4 max-lg:self-start cursor-pointer`}
+          className={`w-fit py-3 px-8 max-lg:py-2 max-lg:px-6 max-lg:self-start cursor-pointer bg-green-500 hover:bg-green-600 transition-all duration-300 active:translate-y-0.5`}
         >
-          <h1 className={`tracking-wider ${adamina.className} lg:text-xl`}>
+          <h1
+            className={`tracking-wider ${adamina.className} lg:text-xl text-white font-semibold hover:scale-105 transition-transform duration-200`}
+          >
             Download CV
           </h1>
         </motion.a>
