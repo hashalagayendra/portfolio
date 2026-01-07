@@ -5,10 +5,33 @@ import github from "@/asset/icons/github.svg";
 import linkedin from "@/asset/icons/linkedin.svg";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Loader2, Send, Download } from "lucide-react"; // Add this import
 
 function Herosection() {
+  // Add loading state
+  const [loading, setLoading] = React.useState(false);
+
+  // Download handler
+  const handleDownload = async () => {
+    setLoading(true);
+    try {
+      // Simulate download delay
+      const link = document.createElement("a");
+      link.href = "/cv/R.A.H.G Ranasingha_CV.pdf";
+      link.download = "R.A.H.G Ranasingha_CV.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section className="w-full h-dvh flex flex-col justify-center relative    xl:px-30  px-10  max-md:px-4 overflow-hidden">
+    <section
+      id="home"
+      className="w-full h-dvh scroll-mt-24 flex flex-col justify-center relative xl:px-30 px-10 max-md:px-4 overflow-hidden -translate-y-16"
+    >
       <motion.div
         className="flex flex-col gap-10 absolute bottom-30 right-10 max-lg:hidden"
         initial={{ opacity: 0, x: 20 }}
@@ -53,20 +76,30 @@ function Herosection() {
             systems, and cloud-ready applications.
           </p>
         </motion.div>
-        <motion.a
+        {/* Replace motion.a with button */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          href="/cv/R.A.H.G Ranasingha_CV.pdf"
-          download="R.A.H.G Ranasingha_CV.pdf"
-          className={`w-fit py-3 px-8 max-lg:py-2 max-lg:px-6 max-lg:self-start cursor-pointer bg-green-500 hover:bg-green-600 transition-all duration-300 active:translate-y-0.5`}
         >
-          <h1
-            className={`tracking-wider ${adamina.className} lg:text-xl text-white font-semibold hover:scale-105 transition-transform duration-200`}
+          <button
+            disabled={loading}
+            onClick={handleDownload}
+            className={`group flex items-center gap-3 bg-green-500/80 hover:bg-green-500 px-10 py-3 border border-green-600 transition-all duration-300 cursor-pointer ${adamina.className} disabled:opacity-70 disabled:cursor-not-allowed`}
           >
-            Download CV
-          </h1>
-        </motion.a>
+            {loading ? (
+              <>
+                <span className="text-lg text-white">Downloading...</span>
+                <Loader2 size={18} className="text-white animate-spin" />
+              </>
+            ) : (
+              <>
+                <span className="text-lg text-white">Download CV</span>
+                <Download size={18} className="text-white " />
+              </>
+            )}
+          </button>
+        </motion.div>
       </div>
     </section>
   );

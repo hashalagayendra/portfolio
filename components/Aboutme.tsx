@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 
 function Aboutme() {
   return (
-    <section className="w-full xl:px-32 px-6 md:px-12  overflow-hidden">
+    <section
+      id="about"
+      className="w-full scroll-mt-24 xl:px-32 px-6 md:px-12 overflow-hidden"
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

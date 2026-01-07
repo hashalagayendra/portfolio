@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Hashala Gayendra",
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ position: "relative" }}>
-        <SmoothScroll>{children}</SmoothScroll>
+        <Navbar />
+        <SmoothScroll>
+          <main className="pt-24">{children}</main>
+        </SmoothScroll>
       </body>
     </html>
   );

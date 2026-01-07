@@ -35,7 +35,7 @@ function Contact() {
 
   return (
     <section
-      className="w-full relative xl:px-32 px-6 md:px-12 overflow-hidden pb-20"
+      className="w-full scroll-mt-24 relative xl:px-32 px-6 md:px-12 overflow-hidden pb-20"
       id="contact"
     >
       {/* Background decoration */}

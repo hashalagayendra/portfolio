@@ -226,7 +226,7 @@ function page() {
   }
 
   return (
-    <section className="xl:px-30 px-10 max-md:px-4 relative pb-14">
+    <section className="xl:px-30 px-10 max-md:px-4 relative pb-14 -translate-y-16">
       <Link
         href="/"
         className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-50 flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group"

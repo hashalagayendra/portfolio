@@ -106,7 +106,7 @@ function Stack() {
   );
 
   return (
-    <section className="w-full  xl:px-32 px-6 md:px-12">
+    <section id="stack" className="w-full scroll-mt-24 xl:px-32 px-6 md:px-12">
       <div className="mb-20">
         <h1
           className={`text-5xl md:text-6xl text-white/75 mb-4 ${anton.className}`}
