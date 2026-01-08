@@ -5,6 +5,8 @@ import { anton, adamina } from "@/app/fonts";
 import Stack from "@/components/Stack";
 import Projects from "@/components/Projects";
 import { motion } from "motion/react";
+import { useEffect } from "react";
+import axios from "axios";
 
 import Herosection from "@/components/Herosection";
 
@@ -12,6 +14,17 @@ import Aboutme from "@/components/Aboutme";
 import Contact from "@/components/Contact";
 
 export default function Home() {
+  async function viewHomepage() {
+    const response = await axios.post("/api/tracking", {
+      methods: "VIEW_HOMEPAGE",
+    });
+    console.log("Tracking API response:", response.data);
+  }
+
+  useEffect(() => {
+    viewHomepage();
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

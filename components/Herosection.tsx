@@ -6,14 +6,28 @@ import linkedin from "@/asset/icons/linkedin.svg";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Loader2, Send, Download } from "lucide-react"; // Add this import
+import axios from "axios";
+import {
+  CvDownloadCounts,
+  linkdnClick,
+  githubClick,
+} from "@/lib/trackinFunctions";
 
 function Herosection() {
   // Add loading state
   const [loading, setLoading] = React.useState(false);
 
+  // async function CvDownloadCounts() {
+  //   const response = await axios.post("/api/tracking", {
+  //     methods: "Cv_download",
+  //   });
+  //   // console.log("Tracking API response:", response.data);
+  // }
+
   // Download handler
   const handleDownload = async () => {
     setLoading(true);
+    CvDownloadCounts();
     try {
       // Simulate download delay
       const link = document.createElement("a");
@@ -39,12 +53,18 @@ function Herosection() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <Link
+          onClick={() => {
+            githubClick();
+          }}
           href="https://github.com/hashalagayendra"
           className="cursor-pointer hover:scale-110 transition-transform"
         >
           <img height={40} width={40} src={github.src} alt="GitHub" />
         </Link>
         <Link
+          onClick={() => {
+            linkdnClick();
+          }}
           href="https://www.linkedin.com/in/hashala-gayendra/"
           className="cursor-pointer hover:scale-110 transition-transform"
         >

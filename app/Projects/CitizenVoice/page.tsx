@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { adamina, anton } from "@/app/fonts";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import leaflet from "@/asset/icons/leaflet.png";
 import gemini from "@/asset/icons/Gemini.png";
 import cloudinary from "@/asset/icons/cloudinary.png";
 import { motion } from "motion/react";
+import { ProjectViews } from "@/lib/trackinFunctions";
 function page() {
   const v1 = "/videos/CitizenVoice/v11.webm";
   const v2 = "/videos/CitizenVoice/v22.webm";
@@ -131,6 +132,10 @@ function page() {
       url: v9,
     },
   ];
+
+  useEffect(() => {
+    ProjectViews("Citizen-Voice");
+  }, []);
 
   function FeatureCard({
     title,

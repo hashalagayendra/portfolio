@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { adamina, anton } from "@/app/fonts";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +13,7 @@ import tailwindcss from "@/asset/icons/tailwindcss.png";
 import nextjs from "@/asset/icons/nextjs.png";
 import nextauthjs from "@/asset/icons/nextauthjs.png";
 import { motion } from "motion/react";
+import { ProjectViews } from "@/lib/trackinFunctions";
 function page() {
   const v1 = "/videos/QwizzyAI/v1.webm";
   const v2 = "/videos/QwizzyAI/v2.webm";
@@ -122,6 +123,10 @@ function page() {
       url: v9,
     },
   ];
+
+  useEffect(() => {
+    ProjectViews("Qwizzy-AI");
+  }, []);
 
   function FeatureCard({
     title,

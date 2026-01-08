@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { adamina, anton } from "@/app/fonts";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +20,7 @@ import githubactions from "@/asset/icons/githubactions.png";
 import azure from "@/asset/icons/azure.svg";
 
 import { motion } from "motion/react";
+import { ProjectViews } from "@/lib/trackinFunctions";
 function page() {
   const v1 = "/videos/ThinkBase/v1.webm";
   const v2 = "/videos/ThinkBase/v2.webm";
@@ -156,6 +157,10 @@ function page() {
       url: v10,
     },
   ];
+
+  useEffect(() => {
+    ProjectViews("Think-Base");
+  }, []);
 
   function FeatureCard({
     title,

@@ -8,6 +8,8 @@ import { Mail, Phone, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { githubClick, linkdnClick } from "@/lib/trackinFunctions";
+import { link } from "fs";
 
 function Contact() {
   const [form, setForm] = useState({ name: "", clientemail: "", message: "" });
@@ -110,6 +112,9 @@ function Contact() {
 
             <div className="flex gap-6 mt-4">
               <Link
+                onClick={() => {
+                  githubClick();
+                }}
                 href="https://github.com/hashalagayendra"
                 target="_blank"
                 className="group cursor-pointer"
@@ -123,6 +128,9 @@ function Contact() {
                 </div>
               </Link>
               <Link
+                onClick={() => {
+                  linkdnClick();
+                }}
                 href="https://www.linkedin.com/in/hashala"
                 target="_blank"
                 className="group cursor-pointer"
