@@ -176,7 +176,7 @@ function page() {
             </ul>
           </div>
         </div>
-        <div className="flex-1 justify-center flex max-lg:justify-center w-full max-lg:hidden items-center ">
+        <div className="flex-1 justify-end flex max-lg:justify-center w-full max-lg:hidden items-center ">
           {/* <Image
             src={url}
             alt={`Qwizzy AI Feature - ${title}`}

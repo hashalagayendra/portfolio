@@ -206,7 +206,7 @@ function page() {
           </div>
         </div>
         {url && (
-          <div className="flex-1 justify-start flex max-lg:justify-center w-full max-lg:hidden">
+          <div className="flex-1 justify-end flex max-lg:justify-center w-full max-lg:hidden">
             {/* <Image
             src={url}
             alt={`Qwizzy AI Feature - ${title}`}
