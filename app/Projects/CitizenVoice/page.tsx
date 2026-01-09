@@ -199,21 +199,21 @@ function page() {
   }
 
   return (
-    <section className="xl:px-30 px-10 max-md:px-4 relative">
-      <Link
+    <section className="xl:px-30 px-10 max-md:px-4 relative -mt-20">
+      {/* <Link
         href="/"
         className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-[100] flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group p-2 cursor-pointer"
       >
         <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
         <span className={`${adamina.className} text-lg`}>Back</span>
-      </Link>
+      </Link> */}
 
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="flex gap-8 max-lg:flex-col w-full h-dvh justify-center items-center pt-24"
+        className="flex gap-8 max-lg:flex-col w-full  justify-center items-center pt-24 mb-20"
       >
         <div className="w-full gap-10 flex flex-col ">
           <h1
@@ -288,9 +288,10 @@ function page() {
       </motion.div>
 
       <motion.div
-        initial={{ y: 50 }}
-        whileInView={{ y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
       >
         <h1
           className={`text-6xl text-green-500/75  max-lg:text-start ${anton.className} max-md:text-5xl md:mt-16 xl:mt-10`}

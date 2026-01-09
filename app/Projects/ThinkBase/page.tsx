@@ -176,7 +176,7 @@ function page() {
     number: number;
   }) {
     return (
-      <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center">
+      <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center ">
         <div
           className={`flex-1 flex flex-col gap-5 ${
             !url ? "w-full" : "max-w-3xl"
@@ -231,21 +231,21 @@ function page() {
   }
 
   return (
-    <section className="xl:px-30 px-10 max-md:px-4 relative pb-14 -translate-y-16">
-      <Link
+    <section className="xl:px-30 px-10 max-md:px-4 relative pb-14 ">
+      {/* <Link
         href="/"
         className="absolute top-10 left-10 xl:left-30 max-md:left-4 z-50 flex items-center gap-2 text-white/50 hover:text-green-500 transition-colors duration-300 group"
       >
         <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
         <span className={`${adamina.className} text-lg`}>Back</span>
-      </Link>
+      </Link> */}
 
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="flex gap-8 max-lg:flex-col w-full h-dvh justify-center items-center "
+        className="flex gap-8 max-lg:flex-col w-full  justify-center items-center  pb-20"
       >
         <div className="w-full gap-5 flex flex-col ">
           <h1
@@ -320,9 +320,10 @@ function page() {
       </motion.div>
 
       <motion.div
-        initial={{ y: 50 }}
-        whileInView={{ y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
       >
         <h1
           className={`text-6xl text-green-500/75  max-lg:text-start ${anton.className}  max-md:text-5xl`}
