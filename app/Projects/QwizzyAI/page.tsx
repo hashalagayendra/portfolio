@@ -142,8 +142,8 @@ function page() {
     number: number;
   }) {
     return (
-      <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center">
-        <div className="flex-1 flex flex-col gap-5 max-w-3xl w-full">
+      <div className="flex mt-10 gap-8 max-lg:flex-col max-lg:items-center ">
+        <div className="flex-1 flex flex-col gap-5 max-w-3xl w-full ">
           <div className="flex  gap-5  items-center">
             <h1
               className={`text-6xl text-green-500/75 ${anton.className}  max-md:text-5xl`}
@@ -167,7 +167,7 @@ function page() {
             </ul>
           </div>
         </div>
-        <div className="flex-1 justify-start flex max-lg:justify-center w-full max-lg:hidden">
+        <div className="flex-1 justify-end flex max-lg:justify-center w-full max-lg:hidden">
           {/* <Image
             src={url}
             alt={`Qwizzy AI Feature - ${title}`}
