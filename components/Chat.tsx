@@ -53,11 +53,11 @@ function Chat({
               headerText="Hasala Gayendra"
               headerTextColor="#ffffff"
               headerImg="https://avatars.githubusercontent.com/u/140869934?v=4"
-              headerColor="#0d1117"
-              bodyTextSize={14}
+              headerColor="#023316"
+              bodyTextSize={13.5}
               bodyColor="#ffffff"
               botImg="https://avatars.githubusercontent.com/u/140869934?v=4"
-              msgBgBot="#d6d8dc"
+              msgBgBot="#039B4250"
               msgBgUser="#dbdbdb"
               msgTextColor="#000000"
               msgRadius={16}

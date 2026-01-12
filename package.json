@@ -28,7 +28,7 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "tailwind-merge": "^3.4.0",
-    "thinkbase": "^1.0.9"
+    "thinkbase": "^1.1.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
