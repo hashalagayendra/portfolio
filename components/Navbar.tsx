@@ -85,7 +85,7 @@ function Navbar() {
     };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-transparent">
+    <header className="fixed inset-x-0 top-0 z-50  bg-gradient-to-b from-[#0d1117] via-[#0d1117]/98 to-[#0d1117]/95 ">
       <nav className="relative z-10 mx-auto flex max-w-[1920px] items-center justify-between px-6 py-4 md:px-12 xl:px-32">
         <Link
           href={brandLink.href}
@@ -190,7 +190,7 @@ function Navbar() {
         <div className="pointer-events-none absolute -right-10 bottom-1/4 h-32 w-32 rounded-full bg-green-400/10 blur-3xl" />
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-full -z-10 bg-gradient-to-b from-black/80 via-black/40 to-transparent backdrop-blur-md" />
+      {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-full -z-10 bg-gradient-to-b from-black/80 via-black/40 to-transparent backdrop-blur-md" /> */}
     </header>
   );
 }

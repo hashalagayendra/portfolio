@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Fix chat scroll containment - prevent scroll from bubbling to page */
+[class*="thinkbase"],
+[class*="chat-container"],
+[class*="message-list"],
+[class*="chat-body"] {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}

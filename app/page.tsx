@@ -5,13 +5,16 @@ import { anton, adamina } from "@/app/fonts";
 import Stack from "@/components/Stack";
 import Projects from "@/components/Projects";
 import { motion } from "motion/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+// @ts-ignore
+import { Chat as ThinkbaseChat } from "thinkbase";
 
 import Herosection from "@/components/Herosection";
 
 import Aboutme from "@/components/Aboutme";
 import Contact from "@/components/Contact";
+import Chat from "@/components/Chat";
 
 export default function Home() {
   async function viewHomepage() {
@@ -25,6 +28,8 @@ export default function Home() {
     viewHomepage();
   }, []);
 
+  const [chatVisible, setChatVisible] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -34,6 +39,8 @@ export default function Home() {
       viewport={{ once: true }}
       className=""
     >
+      {/* <Chat chatVisible={chatVisible} setChatVisible={setChatVisible} /> */}
+
       <div className="  max-w-[1920px] mx-auto">
         <Herosection />
       </div>
