@@ -39,7 +39,7 @@ export default function Home() {
       viewport={{ once: true }}
       className=""
     >
-      {/* <Chat chatVisible={chatVisible} setChatVisible={setChatVisible} /> */}
+      <Chat chatVisible={chatVisible} setChatVisible={setChatVisible} />
 
       <div className="  max-w-[1920px] mx-auto">
         <Herosection />

@@ -43,7 +43,7 @@ function Chat({
             onWheel={(e) => e.stopPropagation()}
           >
             <ThinkbaseChat
-              apiKey={process.env.THINKBASE_API}
+              apiKey={process.env.NEXT_PUBLIC_THINKBASE_API || ""}
               welcomeText="What would you like to know about me?"
               options={[
                 "My Projects",
