@@ -8,9 +8,9 @@ export async function POST(req) {
     //   `elmail is  ${clientemail}   \n message is ${message} \n name is ${name}`
     // );
 
-    // console.log(
-    //   `evvirenment details are \n email is ${process.env.MY_EMAIL} pass is ${process.env.MY_EMAIL_PASS}   `
-    // );
+    console.log(
+      `evvirenment details are \n email is ${process.env.MY_EMAIL} pass is ${process.env.MY_EMAIL_PASS}   `
+    );
 
     // Create transporter (use your email + password/app password)
     const transporter = nodemailer.createTransport({
